@@ -1,6 +1,6 @@
 import React from "react";
 import "./header.css";
-// import SearchIcon from "@material-ui/icons/Search"; <-- material-ui has been depricated.  Use @mui/... instead
+// import SearchIcon from "@material-ui/icons/Search"; <-- material-ui has been deprecated.  Use @mui/... instead
 import SearchIcon from "@mui/icons-material/Search";
 
 function Header() {
