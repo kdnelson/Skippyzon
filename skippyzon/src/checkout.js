@@ -1,10 +1,25 @@
 import React from 'react'
 import "./checkout.css"
+import Subtotal from './subtotal';
 
 function checkout() {
   return (
-    <div>
-      I am a checkout page
+    <div className="checkout">
+      <div className="checkout_left">
+        <img
+          className="checkout_ad"
+          src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
+          alt=""
+        />
+        
+        <div>
+          <h3>Hello</h3>
+          <h2 className="checkout_title">Your shopping Basket</h2>
+        </div>
+      </div>
+      <div className="checkout_right">
+        <Subtotal />
+      </div>
     </div>
   )
 }

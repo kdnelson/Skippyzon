@@ -3,17 +3,18 @@ import "./header.css";
 // import SearchIcon from "@material-ui/icons/Search"; <-- material-ui has been deprecated.  Use @mui/... instead
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <div className="header">
-      <div>
+      <Link to="/">
         <img
           className="header_logo"
           src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
           alt=""
         />
-      </div>
+      </Link>
 
       <div className="header_search">
         <input className="header_searchInput" type="text" />
@@ -39,11 +40,13 @@ function Header() {
           <span className="header_optionLineTwo">Prime</span>
         </div>
 
+      <Link to="/checkout">
        <div className="header_optionBasket">
           <ShoppingBasketIcon />
           <span className="header_optionLineTwo 
           header_basketCount">0</span>
         </div>
+      </Link>
       </div>
     </div>
   );

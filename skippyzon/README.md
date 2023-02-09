@@ -72,4 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### My notes
 
 rfce <Return> for component template (don't remember which package is neede for this. Go back in vid and find out)
+update project structure to how MyT did it
+function name() {} to name () => {}
+
 Left-off @ 1:38
