@@ -1,7 +1,7 @@
 import './App.css';
-import Header from './header';
-import Home from './home';
-import Checkout from './checkout';
+import Header from './Header';
+import Home from './Home';
+import Checkout from './Checkout';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -18,4 +18,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

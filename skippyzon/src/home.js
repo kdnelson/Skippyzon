@@ -1,8 +1,8 @@
 import React from 'react';
-import "./home.css";
-import Product from "./product.js";
+import "./Home.css";
+import Product from "./Product.js";
 
-function home() {
+function Home() {
   return (
     <div className="home">
       <div className="home_container">
@@ -86,4 +86,4 @@ function home() {
   )
 }
 
-export default home
+export default Home
