@@ -71,9 +71,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### My notes
 
+setup autosave delay after 500 ms in VCode
 rfce <Return> for component template (don't remember which package is neede for this. Go back in vid and find out)
 update project structure to how MyT did it
 Look for TODOs
 function name() {} to name () => {}
+replace error popups with an error page
+standerdize the import list in each file
+Add side action Toast (side tiles that showup after an action and then fade away)
+Animation slider buttons
+Animation "remove from cart" 1 second red highlight
+e.preventDefault(); // prevents the submit POST from refreshing the page
+firebase build
+firebase deploy
 
-Left-off @ 1:38
+Left-off @ 5:07
