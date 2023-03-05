@@ -71,18 +71,23 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### My notes
 
+Firebase password: skippy1
+copy VCode sdetup for work IDE
 setup autosave delay after 500 ms in VCode
 rfce <Return> for component template (don't remember which package is neede for this. Go back in vid and find out)
 update project structure to how MyT did it
 Look for TODOs
+JS errors in key props
+Bitching on App.js empty prop {} and empty dependancy array [], if I change it the login refresh fails
 function name() {} to name () => {}
 replace error popups with an error page
+syle by component and not .css files
 standerdize the import list in each file
-Add side action Toast (side tiles that showup after an action and then fade away)
+Maybe... Add side action Toast (side tiles that showup after an action and then fade away)
 Animation slider buttons
 Animation "remove from cart" 1 second red highlight
 e.preventDefault(); // prevents the submit POST from refreshing the page
-firebase build
-firebase deploy
+Replace firebase calls and use with dynamic seed data loaded into Redux
+Hide/disable checkout btn if cart is empty
 
-Left-off @ 5:07
+Left-off @ 7:03
