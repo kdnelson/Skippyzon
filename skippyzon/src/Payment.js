@@ -16,11 +16,11 @@ function Payment() {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    dispatch({
-        type: 'EMPTY_BASKET'
-    })
+    // dispatch({
+    //     type: 'EMPTY_BASKET'
+    // })
 
-    navigate.replace('/orders')
+    navigate('/orders')
   }
 
   return (
@@ -73,9 +73,9 @@ function Payment() {
                     thousandSeparator={true}
                     prefix={"$"}
                   />
-                  {/* <button disabled={processing || disabled || succeeded}>
-                    <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
-                  </button> */}
+                  <button>
+                    <span>Buy Now</span>
+                  </button>
                 </div>
             </form>
           </div>

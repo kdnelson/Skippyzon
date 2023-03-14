@@ -89,5 +89,7 @@ Animation "remove from cart" 1 second red highlight
 e.preventDefault(); // prevents the submit POST from refreshing the page
 Replace firebase calls and use with dynamic seed data loaded into Redux
 Hide/disable checkout btn if cart is empty
+Replace hardcoded text to using a constants file
 
-Left-off @ 7:03
+Left-off @ 8:07
+Orders and Order, just pass a copy of the items you just ordered and pay'd for - then empty the cart

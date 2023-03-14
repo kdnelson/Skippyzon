@@ -11,11 +11,14 @@ function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
             type: 'REMOVE_FROM_BASKET',
             id: id,
         })
+
+        // TODO if last item is removed from basket, just route back to index
+        //navigate('/')
     }
 
   return (
     <div className='checkoutProduct'>
-      <img className='checkoutProduct_image' src={image} />
+      <img className='checkoutProduct_image' src={image} alt="" />
 
             <div className='checkoutProduct_info'>
                 <p className='checkoutProduct_title'>{title}</p>

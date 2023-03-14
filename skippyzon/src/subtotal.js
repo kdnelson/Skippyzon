@@ -29,6 +29,7 @@ function Subtotal() {
         prefix={"$"}
       />
 
+      {/* TODO Disable Checkout Button if cart is empty */}
       <button onClick={e => navigate('/payment')}>Proceed to Checkout</button>
     </div>
   )
