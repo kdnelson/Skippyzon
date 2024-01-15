@@ -71,6 +71,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### My notes
 
+Using window.location.reload(false); in CheckoutItem
+o Refreshing page after item counter + or - logs out the user.
+Using type"submit" in CheckoutItem
+o Everything is great but the decrement method doest refresh quantity.
+
 Implement Bootstrap and style everything, especially product grid
 Actions can use some better error checking
 Rename basket to cart
@@ -87,4 +92,3 @@ e.preventDefault(); // Note: prevents the submit POST from refreshing the page
 Replace hardcoded text to using a constants file
 Standardize all forms with same tab width
 Make the search bar on the home page find products
-/skippyzon/skippyzon ?? why double folders?
