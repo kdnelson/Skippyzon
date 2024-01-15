@@ -1,0 +1,11 @@
+.orders {
+  padding: 5px 20px;
+}
+
+.order_id {
+  font-size: small;
+}
+
+.orders > h1 {
+  margin: 10px 0;
+}
