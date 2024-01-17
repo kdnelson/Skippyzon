@@ -71,24 +71,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### My notes
 
-Using window.location.reload(false); in CheckoutItem
-o Refreshing page after item counter + or - logs out the user.
-Using type"submit" in CheckoutItem
-o Everything is great but the decrement method doest refresh quantity.
-
-Implement Bootstrap and style everything, especially product grid
+Implement Bootstrap and style everything, especially product grid, syle by component and not .css files
 Actions can use some better error checking
 Rename basket to cart
 Add items counter to orders
 Look closely to item price and checkout total, something is off
 Hide orders if not logged in
-replace error popups with an error page
-syle by component and not .css files
+replace error popups with an error page or banner
 standerdize the import list in each file
 Install and implement ESLint
-Animation slider buttons
-Animation "remove from cart" 1 second red highlight
-e.preventDefault(); // Note: prevents the submit POST from refreshing the page
 Replace hardcoded text to using a constants file
 Standardize all forms with same tab width
 Make the search bar on the home page find products

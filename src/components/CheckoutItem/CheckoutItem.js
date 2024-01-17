@@ -12,10 +12,6 @@ const CheckoutItem = (props) => {
     if(basket?.length === 0) {navigate('/')}
   }, [basket, navigate])
 
- 	const refreshPage = e => {
-    window.location.reload(false);
-  }
-
   return (
     <div className='checkoutProduct'>
       <img className='checkoutProduct_image' src={image} alt="" />
@@ -28,9 +24,9 @@ const CheckoutItem = (props) => {
 				</p>
 				{!hideButton && (
 					<div>
-						<button onClick={() => {decrementBasketItem(id); refreshPage()}}>-</button>
+						<button type="submit" onClick={() => {decrementBasketItem(id)}}>-</button>
 						<strong>&nbsp;{quantity}&nbsp;</strong>
-						<button onClick={() => {incrementBasketItem(id); refreshPage()}}>+</button>
+						<button type="submit" onClick={() => {incrementBasketItem(id)}}>+</button>
 					</div>
 				)}
 				<div className="checkoutProduct_rating">

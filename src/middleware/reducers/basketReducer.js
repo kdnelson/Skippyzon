@@ -149,33 +149,40 @@ export const basketReducer = (state = INITIAL_STATE, action) => {
         errorMessage: null,
       }
     case DECREMENT_BASKET_ITEM_SUCCESS:
-      let newIncrementedBasket = [];
-      var cartRemoveOnDecrementHit = false;
+      var decrementCartHit = false;
       state.basket.forEach(o => {
         if(o.id === action.payload.id) {
-          if(o.quantity > 1) {
-            o.quantity--;
-          } else {
-            cartRemoveOnDecrementHit = true;
-            const removeIndex = state.basket.findIndex(
-              o => o.id === action.payload.id
-            );
-            newIncrementedBasket = [...state.basket];
-
-            if (removeIndex >= 0) {
-              newIncrementedBasket.splice(removeIndex, 1);
-            } else {
-              console.warn(
-                `Product (id: ${action.id}) not found in basket!`
-              )
-            }
+          decrementCartHit = true;    
+          o.quantity--;
+          if(o.quantity == 0) {
+            cartRemoveHit = true;
           }
         }
       });
-      if (cartRemoveOnDecrementHit === true) {
+      if (decrementCartHit === true) {
+        if(cartRemoveHit == true){
+          const removeIndex = state.basket.findIndex(
+            o => o.id === action.payload.id
+          );
+          let newIncrementedBasket = [...state.basket];
+
+          if (removeIndex >= 0) {
+            newIncrementedBasket.splice(removeIndex, 1);
+          } else {
+            console.warn(
+              `Product (id: ${action.id}) not found in basket!`
+            )
+          }
+          return {
+            ...state,
+            basket: newIncrementedBasket,
+            isLoading: false,
+            errorMessage: null,
+          }
+        }
         return {
           ...state,
-          basket: newIncrementedBasket,
+          basket: [...state.basket],
           isLoading: false,
           errorMessage: null,
         }
