@@ -34,12 +34,14 @@ const Header = () => {
           </div>
         </Link>
 
-        <Link to='/orders'>
-          <div className="header_option_orders">
-            <span className="header_optionLineOne">Returns</span>
-            <span className="header_optionLineTwo">& Orders</span>
-          </div>
-        </Link>
+        {user && (
+          <Link to='/orders'>
+            <div className="header_option_orders">
+              <span className="header_optionLineOne">Returns</span>
+              <span className="header_optionLineTwo">& Orders</span>
+            </div>
+          </Link>
+        )}
 
         <Link to="/checkout">
           <div className="header_optionBasket">
