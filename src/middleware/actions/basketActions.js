@@ -6,6 +6,9 @@ import {
   INCREMENT_BASKET_ITEM_START, 
   INCREMENT_BASKET_ITEM_SUCCESS,
   INCREMENT_BASKET_ITEM_ERROR,
+  REMOVE_BASKET_ITEM_START, 
+  REMOVE_BASKET_ITEM_SUCCESS,
+  REMOVE_BASKET_ITEM_ERROR,
   DECREMENT_BASKET_ITEM_START, 
   DECREMENT_BASKET_ITEM_SUCCESS,
   DECREMENT_BASKET_ITEM_ERROR,
@@ -41,6 +44,20 @@ export const incrementBasketItemSuccess = id => ({
 
 export const incrementBasketItemError = errorMessage => ({
   type: INCREMENT_BASKET_ITEM_ERROR,
+  payload: errorMessage
+});
+
+export const removeBasketItemStart = () => ({
+  type: REMOVE_BASKET_ITEM_START,
+});
+
+export const removeBasketItemSuccess = id => ({
+  type: REMOVE_BASKET_ITEM_SUCCESS,
+  payload: id
+});
+
+export const removeBasketItemError = errorMessage => ({
+  type: REMOVE_BASKET_ITEM_ERROR,
   payload: errorMessage
 });
 
@@ -96,6 +113,20 @@ export const incrementBasketItemAction = id => async dispatch => {
     );
   } catch (err) {
     dispatch(incrementBasketItemError(err));
+  }
+};
+
+export const removeBasketItemAction = id => async dispatch => {
+  try {
+    dispatch(removeBasketItemStart());
+
+    dispatch(
+      removeBasketItemSuccess({
+        id: id
+      })
+    );
+  } catch (err) {
+    dispatch(removeBasketItemError(err));
   }
 };
 

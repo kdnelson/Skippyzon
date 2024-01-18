@@ -6,7 +6,7 @@ import { useBasket } from '../../hooks/useBasket';
 const CheckoutItem = (props) => {
 	const { id, serialNumber, title, image, price, rating, quantity, hideButton } = props ?? {};
 	const navigate = useNavigate();
-  const { basket, decrementBasketItem, incrementBasketItem } = useBasket();
+  const { basket, decrementBasketItem, incrementBasketItem, removeBasketItem } = useBasket();
 
   useEffect(() => {
     if(basket?.length === 0) {navigate('/')}
@@ -36,6 +36,7 @@ const CheckoutItem = (props) => {
 							<p key={i}>🌟</p>
 						))}
 				</div>
+				<button type="submit" onClick={() => removeBasketItem(id)}>Remove from Basket</button>
 			</div>
     </div>
   )

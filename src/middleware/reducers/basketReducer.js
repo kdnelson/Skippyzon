@@ -5,6 +5,9 @@ import {
   INCREMENT_BASKET_ITEM_START, 
   INCREMENT_BASKET_ITEM_SUCCESS,
   INCREMENT_BASKET_ITEM_ERROR,
+  REMOVE_BASKET_ITEM_START, 
+  REMOVE_BASKET_ITEM_SUCCESS,
+  REMOVE_BASKET_ITEM_ERROR,
   DECREMENT_BASKET_ITEM_START, 
   DECREMENT_BASKET_ITEM_SUCCESS,
   DECREMENT_BASKET_ITEM_ERROR,
@@ -85,6 +88,52 @@ export const basketReducer = (state = INITIAL_STATE, action) => {
         }
       }
     case INCREMENT_BASKET_ITEM_ERROR:
+      return {
+        ...state,
+        errorMessage: 'TODO',
+        isLoading: false,
+      };
+    case REMOVE_BASKET_ITEM_START:
+      return {
+        ...state,
+        isLoading: true,
+        errorMessage: null,
+      }
+    case REMOVE_BASKET_ITEM_SUCCESS:
+      var cartRemoveHit = false;
+      state.basket.forEach(o => {
+        if(o.id === action.payload.id) {
+          cartRemoveHit = true;
+        }
+      });
+      if (cartRemoveHit === true) {
+        const removeIndex = state.basket.findIndex(
+          o => o.id === action.payload.id
+        );
+        let newRemoveBasket = [...state.basket];
+
+        if (removeIndex >= 0) {
+          newRemoveBasket.splice(removeIndex, 1);
+        } else {
+          console.warn(
+            `Product (id: ${action.id}) not found in basket!`
+          )
+        }
+        return {
+          ...state,
+          basket: newRemoveBasket,
+          isLoading: false,
+          errorMessage: null,
+        }
+      } else {
+        return {
+          ...state,
+          basket: [...state.basket],
+          isLoading: false,
+          errorMessage: null,
+        }
+      }
+    case REMOVE_BASKET_ITEM_ERROR:
       return {
         ...state,
         errorMessage: 'TODO',

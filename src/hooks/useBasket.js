@@ -6,6 +6,7 @@ import { getBasket } from '../middleware/selectors/basketSelector'
 import {
   addBasketItemAction,
   incrementBasketItemAction,
+  removeBasketItemAction,
   decrementBasketItemAction,
 } from '../middleware/actions/basketActions'
 
@@ -28,6 +29,10 @@ export const useBasket = () => {
 
   const incrementBasketItem = async id => {
     return dispatch(incrementBasketItemAction(id));
+  }
+
+  const removeBasketItem = async id => {
+    return dispatch(removeBasketItemAction(id));
   }
 
   const decrementBasketItem = async id => {
@@ -62,6 +67,7 @@ export const useBasket = () => {
     basket,
     addBasketItem,
     incrementBasketItem,
+    removeBasketItem,
     decrementBasketItem,
     getBasketCounter,
     getPaymentAndTaxTotal,
