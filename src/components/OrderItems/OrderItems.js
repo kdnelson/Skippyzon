@@ -23,8 +23,12 @@ const OrderItem = (props) => {
       {orderItems.map(o => (
         <OrderDetails
           key={o.id}
+          serialNumber={o.serialNumber}
           title={o.title}
+          image={o.image}
           price={o.price}
+          quantity={o.quantity}
+          rating={o.rating}
         />
       ))}
       <br />

@@ -74,7 +74,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Implement Bootstrap and style everything, especially product grid, syle by component and not .css files
 Actions can use some better error checking
 Rename basket to cart
-Add items counter to orders
 Look closely to item price and checkout total, something is off
 replace error popups with an error page or banner
 standerdize the import list in each file
