@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import "./Payment.css";
 import CurrencyFormat from "react-currency-format";
 import CheckoutItem from "./../CheckoutItem/CheckoutItem.js";
-import { useBasket } from '../../hooks/useBasket';
+import { useCart } from '../../hooks/useCart';
 import { Link, useNavigate } from "react-router-dom";
 import { useUser } from '../../hooks/useUser';
 import { useOrder } from '../../hooks/userOrder';
@@ -10,18 +10,18 @@ import { useOrder } from '../../hooks/userOrder';
 const Payment = () => {
   const navigate = useNavigate();
   const { user } = useUser();
-  const { basket, getPaymentAndTaxTotal } = useBasket();
+  const { cart, getPaymentAndTaxTotal } = useCart();
   const { addOrder } = useOrder();
 
   useEffect(() => {
-    if(basket?.length === 0) {navigate('/')}
-  }, [basket, navigate])
+    if(cart?.length === 0) {navigate('/')}
+  }, [cart, navigate])
 
   return (
     <div className ="payment">
       <div className ="payment_container">
         <h1>
-          Checkout (<Link to = "/checkout">{basket?.length} items</Link>)
+          Checkout (<Link to = "/checkout">{cart?.length} items</Link>)
         </h1>    
         <div className ="payment_section">
           <div className ="payment_title">
@@ -38,7 +38,7 @@ const Payment = () => {
             <h3>Review items and delivery</h3>
           </div>
           <div className ="payment_items">
-          {basket.map(o => (
+          {cart.map(o => (
             <CheckoutItem
               key={o.id}
               id={o.id}
@@ -62,12 +62,12 @@ const Payment = () => {
                 <h3>Order Total: {value}</h3>
                 )}
                   decimalScale={2}
-                  value={getPaymentAndTaxTotal(basket)}
+                  value={getPaymentAndTaxTotal(cart)}
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
                 />
-                <button type="submit" onClick={() => addOrder(basket)}>Buy Now</button>
+                <button type="submit" onClick={() => addOrder(cart)}>Buy Now</button>
             </div>
           </div>
         </div>

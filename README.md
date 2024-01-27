@@ -72,7 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### My notes
 
 Standerdize the import list in each file
-Rename basket to cart
+Replace hardcoded text to using a constants file
 
 Implement Bootstrap and style everything, especially product grid, syle by component and not .css files
 Add cached user token
@@ -82,6 +82,5 @@ Add red slid after an item delete from cart
 Actions can use some better error checking
 replace error popups with an error page or banner
 Install and implement ESLint
-Replace hardcoded text to using a constants file
 Standardize all forms with same tab width
 Make the search bar on the home page find products

@@ -1,10 +1,10 @@
 import React from 'react'
 import './OrderDetails.css'
-import { useBasket } from '../../hooks/useBasket';
+import { useCart } from '../../hooks/useCart';
 
 const OrderDetails = (props) => {
   const { serialNumber, title, image, price, quantity, rating } = props ?? {};
-   const { addBasketItem } = useBasket();
+   const { addCartItem } = useCart();
   return (
     <div className="orderDetails">
       {title}
@@ -17,7 +17,7 @@ const OrderDetails = (props) => {
       </p>
       Quantity: {quantity}
       <br />
-      <button type="submit" onClick={() => addBasketItem(serialNumber, title, image, price, rating)}>Add to Basket</button>
+      <button type="submit" onClick={() => addCartItem(serialNumber, title, image, price, rating)}>Add to Cart</button>
       <br />
       <br />
     </div>

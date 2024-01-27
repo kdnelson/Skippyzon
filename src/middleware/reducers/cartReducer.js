@@ -1,38 +1,38 @@
 import {
-  ADD_BASKET_ITEM_START, 
-  ADD_BASKET_ITEM_SUCCESS,
-  ADD_BASKET_ITEM_ERROR,
-  INCREMENT_BASKET_ITEM_START, 
-  INCREMENT_BASKET_ITEM_SUCCESS,
-  INCREMENT_BASKET_ITEM_ERROR,
-  REMOVE_BASKET_ITEM_START, 
-  REMOVE_BASKET_ITEM_SUCCESS,
-  REMOVE_BASKET_ITEM_ERROR,
-  DECREMENT_BASKET_ITEM_START, 
-  DECREMENT_BASKET_ITEM_SUCCESS,
-  DECREMENT_BASKET_ITEM_ERROR,
-  EMPTY_BASKET_START,
-  EMPTY_BASKET_SUCCESS,
-  EMPTY_BASKET_ERROR
+  ADD_CART_ITEM_START, 
+  ADD_CART_ITEM_SUCCESS,
+  ADD_CART_ITEM_ERROR,
+  INCREMENT_CART_ITEM_START, 
+  INCREMENT_CART_ITEM_SUCCESS,
+  INCREMENT_CART_ITEM_ERROR,
+  REMOVE_CART_ITEM_START, 
+  REMOVE_CART_ITEM_SUCCESS,
+  REMOVE_CART_ITEM_ERROR,
+  DECREMENT_CART_ITEM_START, 
+  DECREMENT_CART_ITEM_SUCCESS,
+  DECREMENT_CART_ITEM_ERROR,
+  EMPTY_CART_START,
+  EMPTY_CART_SUCCESS,
+  EMPTY_CART_ERROR
 } from '../actions/actionTypes';
 
 export const INITIAL_STATE = {
-  basket: [],
+  cart: [],
   isLoading: false,
   errorMessage: null
 };
 
-export const basketReducer = (state = INITIAL_STATE, action) => {
+export const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ADD_BASKET_ITEM_START:
+    case ADD_CART_ITEM_START:
       return {
         ...state,
         isLoading: true,
         errorMessage: null,
       }
-    case ADD_BASKET_ITEM_SUCCESS:
+    case ADD_CART_ITEM_SUCCESS:
       var cartAddHit = false;
-      state.basket.forEach(o => {
+      state.cart.forEach(o => {
         if(o.title === action.payload.data.title) {
           cartAddHit = true;
           o.quantity++;
@@ -41,42 +41,42 @@ export const basketReducer = (state = INITIAL_STATE, action) => {
       if (cartAddHit === false) {
         return {
           ...state,
-          basket: [...state.basket, action.payload.data],
+          cart: [...state.cart, action.payload.data],
           isLoading: false,
           errorMessage: null,
         }
       } else {
         return {
           ...state,
-          basket: [...state.basket],
+          cart: [...state.cart],
           isLoading: false,
           errorMessage: null,
         }
       }
-    case ADD_BASKET_ITEM_ERROR:
+    case ADD_CART_ITEM_ERROR:
       return {
         ...state,
         errorMessage: 'TODO',
         isLoading: false,
       };
-    case INCREMENT_BASKET_ITEM_START:
+    case INCREMENT_CART_ITEM_START:
       return {
         ...state,
         isLoading: true,
         errorMessage: null,
       }
-    case INCREMENT_BASKET_ITEM_SUCCESS:
-      var incrementCartHit = false;
-      state.basket.forEach(o => {
+    case INCREMENT_CART_ITEM_SUCCESS:
+      var foundCartItemOnInc = false;
+      state.cart.forEach(o => {
         if(o.id === action.payload.id) {
-          incrementCartHit = true;
+          foundCartItemOnInc = true;
           o.quantity++;
         }
       });
-      if (incrementCartHit === true) {
+      if (foundCartItemOnInc === true) {
         return {
           ...state,
-          basket: [...state.basket],
+          cart: [...state.cart],
           isLoading: false,
           errorMessage: null,
         }
@@ -87,100 +87,100 @@ export const basketReducer = (state = INITIAL_STATE, action) => {
           errorMessage: null,
         }
       }
-    case INCREMENT_BASKET_ITEM_ERROR:
+    case INCREMENT_CART_ITEM_ERROR:
       return {
         ...state,
         errorMessage: 'TODO',
         isLoading: false,
       };
-    case REMOVE_BASKET_ITEM_START:
+    case REMOVE_CART_ITEM_START:
       return {
         ...state,
         isLoading: true,
         errorMessage: null,
       }
-    case REMOVE_BASKET_ITEM_SUCCESS:
-      var cartRemoveHit = false;
-      state.basket.forEach(o => {
+    case REMOVE_CART_ITEM_SUCCESS:
+      var removeCartItem = false;
+      state.cart.forEach(o => {
         if(o.id === action.payload.id) {
-          cartRemoveHit = true;
+          removeCartItem = true;
         }
       });
-      if (cartRemoveHit === true) {
-        const removeIndex = state.basket.findIndex(
+      if (removeCartItem === true) {
+        const removeIndex = state.cart.findIndex(
           o => o.id === action.payload.id
         );
-        let newRemoveBasket = [...state.basket];
+        let newCartOnItemRemoval = [...state.cart];
 
         if (removeIndex >= 0) {
-          newRemoveBasket.splice(removeIndex, 1);
+          newCartOnItemRemoval.splice(removeIndex, 1);
         } else {
           console.warn(
-            `Product (id: ${action.id}) not found in basket!`
+            `Product (id: ${action.id}) not found in cart!`
           )
         }
         return {
           ...state,
-          basket: newRemoveBasket,
+          cart: newCartOnItemRemoval,
           isLoading: false,
           errorMessage: null,
         }
       } else {
         return {
           ...state,
-          basket: [...state.basket],
+          cart: [...state.cart],
           isLoading: false,
           errorMessage: null,
         }
       }
-    case REMOVE_BASKET_ITEM_ERROR:
+    case REMOVE_CART_ITEM_ERROR:
       return {
         ...state,
         errorMessage: 'TODO',
         isLoading: false,
       };
-    case DECREMENT_BASKET_ITEM_START:
+    case DECREMENT_CART_ITEM_START:
       return {
         ...state,
         isLoading: true,
         errorMessage: null,
       }
-    case DECREMENT_BASKET_ITEM_SUCCESS:
-      var decrementCartHit = false;
-      var cartRemoveHit = false;
-      state.basket.forEach(o => {
+    case DECREMENT_CART_ITEM_SUCCESS:
+      var foundCartItemOnDec = false;
+      var removeCartItemOnDec = false;
+      state.cart.forEach(o => {
         if(o.id === action.payload.id) {
-          decrementCartHit = true;    
+          foundCartItemOnDec = true;    
           o.quantity--;
-          if(o.quantity == 0) {
-            cartRemoveHit = true;
+          if(o.quantity === 0) {
+            removeCartItemOnDec = true;
           }
         }
       });
-      if (decrementCartHit === true) {
-        if(cartRemoveHit == true){
-          const removeIndex = state.basket.findIndex(
+      if (foundCartItemOnDec === true) {
+        if(removeCartItemOnDec === true){
+          const removeIndex = state.cart.findIndex(
             o => o.id === action.payload.id
           );
-          let newIncrementedBasket = [...state.basket];
+          let newDecrementedCart = [...state.cart];
 
           if (removeIndex >= 0) {
-            newIncrementedBasket.splice(removeIndex, 1);
+            newDecrementedCart.splice(removeIndex, 1);
           } else {
             console.warn(
-              `Product (id: ${action.id}) not found in basket!`
+              `Product (id: ${action.id}) not found in cart!`
             )
           }
           return {
             ...state,
-            basket: newIncrementedBasket,
+            cart: newDecrementedCart,
             isLoading: false,
             errorMessage: null,
           }
         }
         return {
           ...state,
-          basket: [...state.basket],
+          cart: [...state.cart],
           isLoading: false,
           errorMessage: null,
         }
@@ -191,32 +191,26 @@ export const basketReducer = (state = INITIAL_STATE, action) => {
           errorMessage: null,
         }
       }
-    case DECREMENT_BASKET_ITEM_ERROR:
+    case DECREMENT_CART_ITEM_ERROR:
       return {
         ...state,
         errorMessage: 'TODO',
         isLoading: false,
       };
-    case INCREMENT_BASKET_ITEM_ERROR:
-      return {
-        ...state,
-        errorMessage: 'TODO',
-        isLoading: false,
-      };
-    case EMPTY_BASKET_START:
+    case EMPTY_CART_START:
       return {
         ...state,
         isLoading: true,
         errorMessage: null,
       }
-    case EMPTY_BASKET_SUCCESS:
+    case EMPTY_CART_SUCCESS:
       return {
         ...state,
-        basket: [],
+        cart: [],
         isLoading: false,
         errorMessage: null,
       }
-    case EMPTY_BASKET_ERROR:
+    case EMPTY_CART_ERROR:
       return {
         ...state,
         errorMessage: 'TODO',

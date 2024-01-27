@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import './CheckoutItem.css'
 import { useNavigate } from "react-router-dom";
-import { useBasket } from '../../hooks/useBasket';
+import { useCart } from '../../hooks/useCart';
 
 const CheckoutItem = (props) => {
 	const { id, serialNumber, title, image, price, rating, quantity, hideButton } = props ?? {};
 	const navigate = useNavigate();
-  const { basket, decrementBasketItem, incrementBasketItem, removeBasketItem } = useBasket();
+  const { cart, decrementCartItem, incrementCartItem, removeCartItem } = useCart();
 
   useEffect(() => {
-    if(basket?.length === 0) {navigate('/')}
-  }, [basket, navigate])
+    if(cart?.length === 0) {navigate('/')}
+  }, [cart, navigate])
 
   return (
     <div className='checkoutProduct'>
@@ -24,9 +24,9 @@ const CheckoutItem = (props) => {
 				</p>
 				{!hideButton && (
 					<div>
-						<button type="submit" onClick={() => {decrementBasketItem(id)}}>-</button>
+						<button type="submit" onClick={() => {decrementCartItem(id)}}>-</button>
 						<strong>&nbsp;{quantity}&nbsp;</strong>
-						<button type="submit" onClick={() => {incrementBasketItem(id)}}>+</button>
+						<button type="submit" onClick={() => {incrementCartItem(id)}}>+</button>
 					</div>
 				)}
 				<div className="checkoutProduct_rating">
@@ -36,7 +36,7 @@ const CheckoutItem = (props) => {
 							<p key={i}>🌟</p>
 						))}
 				</div>
-				<button type="submit" onClick={() => removeBasketItem(id)}>Remove from Basket</button>
+				<button type="submit" onClick={() => removeCartItem(id)}>Remove from Cart</button>
 			</div>
     </div>
   )

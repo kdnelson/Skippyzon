@@ -1,4 +1,4 @@
-export const BasketService = () => {
+export const CartService = () => {
   const someMethod = async () => {
     return null;
   }

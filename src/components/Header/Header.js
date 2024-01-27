@@ -5,11 +5,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { Link } from "react-router-dom";
 import { useUser } from '../../hooks/useUser';
-import { useBasket } from '../../hooks/useBasket';
+import { useCart } from '../../hooks/useCart';
 
 const Header = () => {
   const { user } = useUser();
-  const { getBasketCounter } = useBasket();
+  const { getCartCounter } = useCart();
 
   return (
     <div className="header">
@@ -44,9 +44,9 @@ const Header = () => {
         )}
 
         <Link to="/checkout">
-          <div className="header_optionBasket">
+          <div className="header_optionCart">
             <ShoppingBasketIcon />
-            <span className="header_optionLineTwo header_basketCount">{getBasketCounter()}</span>
+            <span className="header_optionLineTwo header_cartCount">{getCartCounter()}</span>
           </div>
         </Link>
       </div>

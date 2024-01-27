@@ -2,11 +2,11 @@ import React from 'react'
 import './OrderItems.css'
 import OrderDetails from "../OrderDetails/OrderDetails.js";
 import CurrencyFormat from "react-currency-format";
-import { useBasket } from '../../hooks/useBasket';
+import { useCart } from '../../hooks/useCart';
 
 const OrderItem = (props) => {
   const { id, orderItems } = props ?? {};
-  const { getPaymentAndTaxTotal } = useBasket();
+  const { getPaymentAndTaxTotal } = useCart();
   return (
     <>
       <h4>Order Id: {id}</h4>

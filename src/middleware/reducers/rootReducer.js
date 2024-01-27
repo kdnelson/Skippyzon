@@ -1,11 +1,11 @@
 import { userReducer } from './userReducer';
 import { productReducer } from './productReducer';
-import { basketReducer } from './basketReducer';
+import { cartReducer } from './cartReducer';
 import { orderReducer } from './orderReducer';
 
 export default {
   userReducer,
   productReducer,
-  basketReducer,
+  cartReducer,
   orderReducer
 }

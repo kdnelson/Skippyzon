@@ -6,16 +6,11 @@ import { logger } from 'redux-logger';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import { userReducer } from './reducers/userReducer';
 import { productReducer } from './reducers/productReducer';
-import { basketReducer } from './reducers/basketReducer';
+import { cartReducer } from './reducers/cartReducer';
 import { orderReducer } from './reducers/orderReducer';
-// TODO
-//import { BasketService } from '../services';
-// TODO
-//import { USER_LOGOUT } from './actions/userActions';
 
 const middleware = [
   thunk.withExtraArgument({
-    //TODO basketService: new BasketService()
   }),
 ];
 
@@ -26,24 +21,17 @@ if (process.env.NODE_ENV === 'development') {
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['basketState']
+  whitelist: ['cartState']
 };
 
 const appReducer = combineReducers({
   userState: userReducer,
   productState: productReducer,
-  basketState: basketReducer,
+  cartState: cartReducer,
   orderState: orderReducer
 });
 
 const rootReducer = (state, action) => {
-  // TODO
-  // if (action.type === USER_LOGOUT) {
-  //   // Returning type and state as undefined so that each reducer can leverage the
-  //   // default case to return the initial state
-  //   return appReducer(undefined, { type: undefined });
-  // }
-
   return appReducer(state, action);
 };
 

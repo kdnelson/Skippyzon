@@ -8,10 +8,10 @@ export const useOrder = () => {
   const dispatch = useDispatch();
   const orders = useSelector(getOrders);
 
-  const addOrder = async (basket) => {
+  const addOrder = async (cart) => {
     const data = {
       id: uuidv4(),
-      order: basket
+      order: cart
     }
     return dispatch(addOrderAction(data));
   }

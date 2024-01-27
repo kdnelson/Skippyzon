@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import "./Product.css";
 import { useNavigate } from "react-router-dom";
-import { useBasket } from '../../hooks/useBasket';
+import { useCart } from '../../hooks/useCart';
 
 const Product = (props) => {
   const { serialNumber, title, image, price, rating } = props ?? {};
   const navigate = useNavigate();
-  const { basket, addBasketItem } = useBasket();
+  const { cart, addCartItem } = useCart();
 
   useEffect(() => {
-    if(basket?.length === 0) {navigate('/')}
-  }, [basket, navigate])
+    if(cart?.length === 0) {navigate('/')}
+  }, [cart, navigate])
 
   return (
     <div className="product">
@@ -29,7 +29,7 @@ const Product = (props) => {
         </div>
       </div>
       <img src={image} alt="" />
-      <button type="submit" onClick={() => addBasketItem(serialNumber, title, image, price, rating)}>Add to Basket</button>
+      <button type="submit" onClick={() => addCartItem(serialNumber, title, image, price, rating)}>Add to Cart</button>
     </div>
   );
 }

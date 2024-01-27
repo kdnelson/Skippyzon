@@ -4,16 +4,16 @@ import Subtotal from '../Subtotal/Subtotal.js';
 import { useNavigate } from "react-router-dom";
 import CheckoutItem from "../CheckoutItem/CheckoutItem.js";
 import { useUser } from '../../hooks/useUser';
-import { useBasket } from '../../hooks/useBasket';
+import { useCart } from '../../hooks/useCart';
 
 const Checkout = () => {
   const navigate = useNavigate();
   const { user } = useUser();
-  const { basket } = useBasket();
+  const { cart } = useCart();
 
   useEffect(() => {
-    if(basket?.length === 0) {navigate('/')}
-  }, [basket, navigate])
+    if(cart?.length === 0) {navigate('/')}
+  }, [cart, navigate])
 
   return (
     <div className="checkout">
@@ -24,13 +24,13 @@ const Checkout = () => {
           alt=""
         />
         <div>
-          {user === null && basket?.length > 0 ? (
+          {user === null && cart?.length > 0 ? (
             <h3>Please sign in.</h3>
           ) : (
             <h3>Hello, {user?.email}</h3>
           )}
-          <h2 className="checkout_title">Your shopping Basket</h2>
-          {basket?.map(o => (
+          <h2 className="checkout_title">Your shopping Cart</h2>
+          {cart?.map(o => (
             <CheckoutItem
               key={o.id}
               id={o.id}
@@ -46,7 +46,7 @@ const Checkout = () => {
         </div>
       </div>
       <div className="checkout_right">
-        {user !== null && basket?.length > 0 && (
+        {user !== null && cart?.length > 0 && (
           <Subtotal />
         )}
       </div>

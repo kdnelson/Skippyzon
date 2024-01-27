@@ -7,7 +7,7 @@ import {
   REMOVE_ORDER_ITEM_SUCCESS,
   REMOVE_ORDER_ITEM_ERROR
 } from './actionTypes';
-import { emptyBasketAction } from './basketActions';
+import { emptyCartAction } from './cartActions';
 
 const orderService = OrderService();
 
@@ -49,7 +49,7 @@ export const addOrderAction = data => async dispatch => {
       })
     );
 
-    dispatch(emptyBasketAction())
+    dispatch(emptyCartAction())
 
   } catch (err) {
     dispatch(addOrderError(err));
