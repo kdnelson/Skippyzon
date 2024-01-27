@@ -9,8 +9,12 @@ const OrderDetails = (props) => {
     <div className="orderDetails">
       {title}
       <br />
-      Price: {price}
-      <br />
+      <p>
+        Price:
+        &nbsp;
+        <small>$</small>
+        {price}
+      </p>
       Quantity: {quantity}
       <br />
       <button type="submit" onClick={() => addBasketItem(serialNumber, title, image, price, rating)}>Add to Basket</button>

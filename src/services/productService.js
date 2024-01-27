@@ -13,7 +13,7 @@ export const ProductService = () => {
 //       id: "2",
 //       serialNumber: "232323",
 //       title: "Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl",
-//       price: '239.0',
+//       price: '239.00',
 //       rating: '4',
 //       image: "https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
 //   },
@@ -64,7 +64,7 @@ const products = [
       id: "2",
       serialNumber: "232323",
       title: "Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl",
-      price: '239.0',
+      price: '239.00',
       rating: '4',
       image: "https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
   },

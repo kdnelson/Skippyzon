@@ -22,7 +22,7 @@ const Subtotal = () => {
           </>
         )}
         decimalScale={2}
-        value={getBasketTotal(basket)}
+        value={getBasketTotal(basket).toFixed(2)}
         displayType={"text"}
         thousandSeparator={true}
         prefix={"$"}

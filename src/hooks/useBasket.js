@@ -1,4 +1,4 @@
-import parseint from 'parseint'
+import parsefloat from 'parsefloat'
 import { useDispatch } from "react-redux";
 import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
@@ -50,15 +50,15 @@ export const useBasket = () => {
   const getPaymentAndTaxTotal = (basket) => {
     let total = 0;
     basket.forEach(item => {
-      total += (parseint(item.price)*item.quantity)
+      total += (parsefloat(item.price)*item.quantity)
     });
-    return total + (total * .07);
+    return total + (total * .03);
   }
 
   const getBasketTotal = (basket) => {
     let total = 0;
     basket.forEach(item => {
-      total += (parseint(item.price)*item.quantity)
+      total += (parsefloat(item.price)*item.quantity)
     });
     return total;
   }
