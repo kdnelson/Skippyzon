@@ -1,1 +1,1 @@
-export { CheckoutItem } from "./CheckoutItem";
+export { CheckoutItem } from './CheckoutItem'

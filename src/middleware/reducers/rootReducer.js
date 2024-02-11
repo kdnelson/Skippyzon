@@ -1,11 +1,13 @@
-import { userReducer } from './userReducer';
-import { productReducer } from './productReducer';
-import { cartReducer } from './cartReducer';
-import { orderReducer } from './orderReducer';
+import { userReducer } from './userReducer'
+import { productReducer } from './productReducer'
+import { cartReducer } from './cartReducer'
+import { orderReducer } from './orderReducer'
 
-export default {
+const modules = {
   userReducer,
   productReducer,
   cartReducer,
   orderReducer
 }
+
+export default modules

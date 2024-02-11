@@ -2,13 +2,13 @@ import {
   GET_PRODUCTS_START,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR
-} from '../actions/actionTypes';
+} from '../actions/actionTypes'
 
 export const INITIAL_STATE = {
   products: [],
   isLoading: false,
   errorMessage: null
-};
+}
 
 export const productReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -30,8 +30,8 @@ export const productReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isLoading: false,
         errorMessage: 'TODO'
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}

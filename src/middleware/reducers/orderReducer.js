@@ -8,13 +8,13 @@ import {
   EMPTY_ORDER_START,
   EMPTY_ORDER_SUCCESS,
   EMPTY_ORDER_ERROR
-} from '../actions/actionTypes';
+} from '../actions/actionTypes'
 
 export const INITIAL_STATE = {
   order: [],
   isLoading: false,
   errorMessage: null
-};
+}
 
 export const orderReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -22,35 +22,35 @@ export const orderReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isLoading: true,
-        errorMessage: null,
+        errorMessage: null
       }
     case ADD_ORDER_SUCCESS:
       return {
         ...state,
         order: [...state.order, action.payload.data],
         isLoading: false,
-        errorMessage: null,
+        errorMessage: null
       }
     case ADD_ORDER_ERROR:
       return {
         ...state,
         errorMessage: 'TODO',
-        isLoading: false,
-      };
+        isLoading: false
+      }
     case REMOVE_ORDER_ITEM_START:
       return {
         ...state,
         isLoading: true,
-        errorMessage: null,
+        errorMessage: null
       }
     case REMOVE_ORDER_ITEM_SUCCESS:
       const index = state.order.findIndex(
         o => o.id === action.payload.id
-      );
-      let newOrder = [...state.order];
+      )
+      const newOrder = [...state.order]
 
       if (index >= 0) {
-        newOrder.splice(index, 1);
+        newOrder.splice(index, 1)
       } else {
         console.warn(
           `Product (id: ${action.id}) not found in order!`
@@ -60,34 +60,34 @@ export const orderReducer = (state = INITIAL_STATE, action) => {
         ...state,
         order: newOrder,
         isLoading: false,
-        errorMessage: null,
+        errorMessage: null
       }
     case REMOVE_ORDER_ITEM_ERROR:
       return {
         ...state,
         errorMessage: 'TODO',
-        isLoading: false,
-      };
+        isLoading: false
+      }
     case EMPTY_ORDER_START:
       return {
         ...state,
         isLoading: true,
-        errorMessage: null,
+        errorMessage: null
       }
     case EMPTY_ORDER_SUCCESS:
       return {
         ...state,
         order: [],
         isLoading: false,
-        errorMessage: null,
+        errorMessage: null
       }
     case EMPTY_ORDER_ERROR:
       return {
         ...state,
         errorMessage: 'TODO',
-        isLoading: false,
-      };
+        isLoading: false
+      }
     default:
-      return state;
+      return state
   }
-};
+}

@@ -1,1 +1,1 @@
-export { Subtotal } from "./Subtotal";
+export { Subtotal } from './Subtotal'

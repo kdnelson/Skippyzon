@@ -1,13 +1,14 @@
-import React from 'react';
 import './Orders.css'
-import OrderItems from "./../OrderItems/OrderItems.js";
-import { useOrder } from '../../hooks/userOrder';
+import { useTranslation } from 'react-i18next'
+import OrderItems from './../OrderItems/OrderItems.js'
+import { useOrder } from '../../hooks/userOrder'
 
 const Orders = () => {
-    const { orders } = useOrder();
-    return (
+  const { t } = useTranslation()
+  const { orders } = useOrder()
+  return (
 			<div className='orders'>
-				<h1>Your Orders</h1>
+				<h1>{t('orders.yourOrder')}</h1>
         <br />
         {orders.map(o => (
           <OrderItems
@@ -17,7 +18,7 @@ const Orders = () => {
           />
         ))}
 			</div>
-    )
+  )
 }
 
 export default Orders

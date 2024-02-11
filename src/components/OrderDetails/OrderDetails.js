@@ -1,23 +1,24 @@
-import React from 'react'
 import './OrderDetails.css'
-import { useCart } from '../../hooks/useCart';
+import { useTranslation } from 'react-i18next'
+import { useCart } from '../../hooks/useCart'
 
 const OrderDetails = (props) => {
-  const { serialNumber, title, image, price, quantity, rating } = props ?? {};
-   const { addCartItem } = useCart();
+  const { t } = useTranslation()
+  const { serialNumber, title, image, price, quantity, rating } = props ?? {}
+  const { addCartItem } = useCart()
   return (
     <div className="orderDetails">
       {title}
       <br />
       <p>
-        Price:
+        {t('orderdetails.price')}:
         &nbsp;
         <small>$</small>
         {price}
       </p>
-      Quantity: {quantity}
+      {t('orderdetails.quantity')}: {quantity}
       <br />
-      <button type="submit" onClick={() => addCartItem(serialNumber, title, image, price, rating)}>Add to Cart</button>
+      <button type="submit" onClick={() => addCartItem(serialNumber, title, image, price, rating)}>{t('orderdetails.addToCartBtn')}</button>
       <br />
       <br />
     </div>

@@ -1,18 +1,20 @@
-import React, { useEffect } from 'react';
-import "./Checkout.css"
-import Subtotal from '../Subtotal/Subtotal.js';
-import { useNavigate } from "react-router-dom";
-import CheckoutItem from "../CheckoutItem/CheckoutItem.js";
-import { useUser } from '../../hooks/useUser';
-import { useCart } from '../../hooks/useCart';
+import { useEffect } from 'react'
+import './Checkout.css'
+import { useTranslation } from 'react-i18next'
+import Subtotal from '../Subtotal/Subtotal.js'
+import { useNavigate } from 'react-router-dom'
+import CheckoutItem from '../CheckoutItem/CheckoutItem.js'
+import { useUser } from '../../hooks/useUser'
+import { useCart } from '../../hooks/useCart'
 
 const Checkout = () => {
-  const navigate = useNavigate();
-  const { user } = useUser();
-  const { cart } = useCart();
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+  const { user } = useUser()
+  const { cart } = useCart()
 
   useEffect(() => {
-    if(cart?.length === 0) {navigate('/')}
+    if (cart?.length === 0) { navigate('/') }
   }, [cart, navigate])
 
   return (
@@ -24,12 +26,14 @@ const Checkout = () => {
           alt=""
         />
         <div>
-          {user === null && cart?.length > 0 ? (
-            <h3>Please sign in.</h3>
-          ) : (
-            <h3>Hello, {user?.email}</h3>
-          )}
-          <h2 className="checkout_title">Your shopping Cart</h2>
+          {user === null && cart?.length > 0
+            ? (
+            <h3>{t('checkout.pleaseSignIn')}</h3>
+              )
+            : (
+            <h3>{t('checkout.hello')}, {user?.email}</h3>
+              )}
+          <h2 className="checkout_title">{t('checkout.yourShoppingCart')}</h2>
           {cart?.map(o => (
             <CheckoutItem
               key={o.id}

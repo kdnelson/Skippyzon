@@ -1,23 +1,24 @@
-import React from 'react'
 import './OrderItems.css'
-import OrderDetails from "../OrderDetails/OrderDetails.js";
-import CurrencyFormat from "react-currency-format";
-import { useCart } from '../../hooks/useCart';
+import { useTranslation } from 'react-i18next'
+import OrderDetails from '../OrderDetails/OrderDetails.js'
+import CurrencyFormat from 'react-currency-format'
+import { useCart } from '../../hooks/useCart'
 
 const OrderItem = (props) => {
-  const { id, orderItems } = props ?? {};
-  const { getPaymentAndTaxTotal } = useCart();
+  const { t } = useTranslation()
+  const { id, orderItems } = props ?? {}
+  const { getPaymentAndTaxTotal } = useCart()
   return (
     <>
-      <h4>Order Id: {id}</h4>
+      <h4>{t('orderitems.orderId')}: {id}</h4>
       <CurrencyFormat renderText={(value) => (
-        <h4>Total: {value}</h4>
-        )}
+        <h4>{t('orderitems.total')}: {value}</h4>
+      )}
           decimalScale={2}
           value={getPaymentAndTaxTotal(orderItems)}
-          displayType={"text"}
+          displayType={'text'}
           thousandSeparator={true}
-          prefix={"$"}
+          prefix={'$'}
       />
       <hr />
       {orderItems.map(o => (

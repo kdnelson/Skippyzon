@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
-import "./Product.css";
-import { useNavigate } from "react-router-dom";
-import { useCart } from '../../hooks/useCart';
+import { useEffect } from 'react'
+import './Product.css'
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
+import { useCart } from '../../hooks/useCart'
 
 const Product = (props) => {
-  const { serialNumber, title, image, price, rating } = props ?? {};
-  const navigate = useNavigate();
-  const { cart, addCartItem } = useCart();
+  const { t } = useTranslation()
+  const { serialNumber, title, image, price, rating } = props ?? {}
+  const navigate = useNavigate()
+  const { cart, addCartItem } = useCart()
 
   useEffect(() => {
-    if(cart?.length === 0) {navigate('/')}
+    if (cart?.length === 0) { navigate('/') }
   }, [cart, navigate])
 
   return (
@@ -29,9 +31,9 @@ const Product = (props) => {
         </div>
       </div>
       <img src={image} alt="" />
-      <button type="submit" onClick={() => addCartItem(serialNumber, title, image, price, rating)}>Add to Cart</button>
+      <button type="submit" onClick={() => addCartItem(serialNumber, title, image, price, rating)}>{t('product.addToCartBtn')}</button>
     </div>
-  );
+  )
 }
 
 export default Product

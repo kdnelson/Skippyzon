@@ -1,17 +1,16 @@
-import React, { useEffect } from 'react';
-import "./Home.css";
-import Product from "../Product/Product.js";
-import { useProduct } from '../../hooks/useProduct';
+import { useEffect } from 'react'
+import './Home.css'
+import Product from '../Product/Product.js'
+import { useProduct } from '../../hooks/useProduct'
 
 const Home = () => {
-  const { products, getAllProducts } = useProduct();
+  const { products, getAllProducts } = useProduct()
 
   useEffect(() => {
-    if(products.length === 0) {
-      getAllProducts();
+    if (products.length === 0) {
+      getAllProducts()
     }
-
-  }, [products, getAllProducts]);
+  }, [products, getAllProducts])
 
   return (
     <div className="home">

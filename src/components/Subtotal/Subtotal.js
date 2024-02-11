@@ -1,12 +1,13 @@
-import React from 'react'
-import "./Subtotal.css"
-import CurrencyFormat from "react-currency-format";
-import { useNavigate  } from "react-router-dom";
-import { useCart } from '../../hooks/useCart';
+import './Subtotal.css'
+import { useTranslation } from 'react-i18next'
+import CurrencyFormat from 'react-currency-format'
+import { useNavigate } from 'react-router-dom'
+import { useCart } from '../../hooks/useCart'
 
 const Subtotal = () => {
-  const navigate = useNavigate();
-  const { cart, getCartTotal } = useCart();
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+  const { cart, getCartTotal } = useCart()
 
   return (
     <div className="subtotal">
@@ -14,21 +15,21 @@ const Subtotal = () => {
         renderText={(value) => (
           <>
             <p>
-              Subtotal ({cart.length} items): <strong>{value}</strong>
+              {t('subtotal.subtotal')} ({cart.length} {t('subtotal.items')}): <strong>{value}</strong>
             </p>
             <small className="subtotal_gift">
-              <input type="checkbox" /> This order contains a gift
+              <input type="checkbox" />{t('subtotal.thisOrderContainsAGift')}
             </small>
           </>
         )}
         decimalScale={2}
         value={getCartTotal(cart).toFixed(2)}
-        displayType={"text"}
+        displayType={'text'}
         thousandSeparator={true}
-        prefix={"$"}
+        prefix={'$'}
       />
 
-			<button onClick={e => navigate('/payment')}>Proceed to Checkout</button>
+			<button onClick={e => navigate('/payment')}>{t('subtotal.proceedToCheckoutBtn')}</button>
     </div>
   )
 }

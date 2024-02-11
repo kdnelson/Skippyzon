@@ -1,13 +1,14 @@
-import './App.css';
-import Header from './components/Header/Header';
-import Home from './components/Home/Home';
-import Checkout from './components/Checkout/Checkout';
-import Payment from './components/Payment/Payment';
-import Orders from './components/Orders/Orders';
-import Login from './components/Login/Login';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './App.css'
+import './i18n'
+import Header from './components/Header/Header'
+import Home from './components/Home/Home'
+import Checkout from './components/Checkout/Checkout'
+import Payment from './components/Payment/Payment'
+import Orders from './components/Orders/Orders'
+import Login from './components/Login/Login'
 
-function App() {
+function App () {
   return (
     <Router>
       <div className="app">
@@ -20,7 +21,7 @@ function App() {
         </Routes>
       </div>
     </Router>
-  );
+  )
 }
 
 export default App

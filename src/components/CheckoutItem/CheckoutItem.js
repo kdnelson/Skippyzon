@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react'
 import './CheckoutItem.css'
-import { useNavigate } from "react-router-dom";
-import { useCart } from '../../hooks/useCart';
+import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
+import { useCart } from '../../hooks/useCart'
 
 const CheckoutItem = (props) => {
-	const { id, serialNumber, title, image, price, rating, quantity, hideButton } = props ?? {};
-	const navigate = useNavigate();
-  const { cart, decrementCartItem, incrementCartItem, removeCartItem } = useCart();
+	const { t } = useTranslation()
+  const { id, serialNumber, title, image, price, rating, quantity, hideButton } = props ?? {}
+  const navigate = useNavigate()
+  const { cart, decrementCartItem, incrementCartItem, removeCartItem } = useCart()
 
   useEffect(() => {
-    if(cart?.length === 0) {navigate('/')}
+    if (cart?.length === 0) { navigate('/') }
   }, [cart, navigate])
 
   return (
@@ -24,19 +26,19 @@ const CheckoutItem = (props) => {
 				</p>
 				{!hideButton && (
 					<div>
-						<button type="submit" onClick={() => {decrementCartItem(id)}}>-</button>
+						<button type="submit" onClick={() => { decrementCartItem(id) }}>-</button>
 						<strong>&nbsp;{quantity}&nbsp;</strong>
-						<button type="submit" onClick={() => {incrementCartItem(id)}}>+</button>
+						<button type="submit" onClick={() => { incrementCartItem(id) }}>+</button>
 					</div>
 				)}
 				<div className="checkoutProduct_rating">
 					{Array(rating)
-						.fill()
-						.map((_, i) => (
+					  .fill()
+					  .map((_, i) => (
 							<p key={i}>🌟</p>
-						))}
+					  ))}
 				</div>
-				<button type="submit" onClick={() => removeCartItem(id)}>Remove from Cart</button>
+				<button type="submit" onClick={() => removeCartItem(id)}>{t('checkoutitem.removeFromCartBtn')}</button>
 			</div>
     </div>
   )

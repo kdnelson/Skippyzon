@@ -1,9 +1,9 @@
 export const UserService = () => {
   const someMethod = async () => {
-    return null;
+    return null
   }
 
   return {
     someMethod
-  };
-};
+  }
+}

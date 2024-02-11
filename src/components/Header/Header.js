@@ -1,15 +1,16 @@
-import React from 'react';
-import "./Header.css";
+import './Header.css'
 // import SearchIcon from "@material-ui/icons/Search"; <-- material-ui has been deprecated.  Use @mui/... instead
-import SearchIcon from "@mui/icons-material/Search";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
-import { Link } from "react-router-dom";
-import { useUser } from '../../hooks/useUser';
-import { useCart } from '../../hooks/useCart';
+import { useTranslation } from 'react-i18next'
+import SearchIcon from '@mui/icons-material/Search'
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket'
+import { Link } from 'react-router-dom'
+import { useUser } from '../../hooks/useUser'
+import { useCart } from '../../hooks/useCart'
 
 const Header = () => {
-  const { user } = useUser();
-  const { getCartCounter } = useCart();
+  const { t } = useTranslation()
+  const { user } = useUser()
+  const { getCartCounter } = useCart()
 
   return (
     <div className="header">
@@ -29,16 +30,16 @@ const Header = () => {
       <div className="header_nav">
         <Link to='/login'>
           <div className="header_option_user">
-            <span className="header_optionLineOne">Hello {!user ? 'Guest' : user?.email}</span>
-            <span className="header_optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
+            <span className="header_optionLineOne">{t('header.hello')} {!user ? t('header.guest') : user?.email}</span>
+            <span className="header_optionLineTwo">{user ? t('header.signOut') : t('header.signIn')}</span>
           </div>
         </Link>
 
         {user && (
           <Link to='/orders'>
             <div className="header_option_orders">
-              <span className="header_optionLineOne">Returns</span>
-              <span className="header_optionLineTwo">& Orders</span>
+              <span className="header_optionLineOne">{t('header.returns')}</span>
+              <span className="header_optionLineTwo">{t('header.andOrders')}</span>
             </div>
           </Link>
         )}
@@ -51,7 +52,7 @@ const Header = () => {
         </Link>
       </div>
     </div>
-  );
+  )
 }
 
 export default Header

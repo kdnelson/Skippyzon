@@ -5,14 +5,14 @@ import {
   REMOVE_USER_START,
   REMOVE_USER_SUCCESS,
   REMOVE_USER_ERROR
-} from '../actions/actionTypes';
+} from '../actions/actionTypes'
 import { User } from '../../models/user'
 
 export const INITIAL_STATE = {
   user: null,
   isLoading: false,
   errorMessage: null
-};
+}
 
 export const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -23,7 +23,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         errorMessage: null
       }
     case ADD_USER_SUCCESS:
-      state.user = User;
+      state.user = User
       return {
         user: Object.assign(state.user, action.payload.data),
         isLoading: false,
@@ -34,7 +34,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isLoading: false,
         errorMessage: 'TODO'
-      };
+      }
     case REMOVE_USER_START:
       return {
         ...state,
@@ -53,8 +53,8 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isLoading: false,
         errorMessage: 'TODO'
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}

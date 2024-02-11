@@ -71,16 +71,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### My notes
 
-Standerdize the import list in each file
-Replace hardcoded text to using a constants file
+Add wait spinner on await middleware calls (add a temp pause till AWS services are attached)
+Use each folder indexes and call them.
 
 Implement Bootstrap and style everything, especially product grid, syle by component and not .css files
-Add cached user token
 Add Jest with 1 unit test
-How to use each folder indexes?
 Add red slid after an item delete from cart
 Actions can use some better error checking
-replace error popups with an error page or banner
-Install and implement ESLint
-Standardize all forms with same tab width
+Replace error popups with an error page or banner
 Make the search bar on the home page find products
