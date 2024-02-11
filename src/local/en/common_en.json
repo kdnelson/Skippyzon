@@ -47,7 +47,7 @@
     "addToCartBtn": "Add To Cart"
   },
   "subtotal": {
-    "subtotal": "Subtotal",
+    "subTotal": "Subtotal",
     "items": "items",
     "thisOrderContainsAGift": "This order contains a gift",
     "proceedToCheckoutBtn": "Proceed to Checkout"

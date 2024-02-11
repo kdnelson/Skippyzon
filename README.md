@@ -73,10 +73,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Add wait spinner on await middleware calls (add a temp pause till AWS services are attached)
 Use each folder indexes and call them.
+Add Jest with 1 unit test
 
 Implement Bootstrap and style everything, especially product grid, syle by component and not .css files
-Add Jest with 1 unit test
 Add red slid after an item delete from cart
 Actions can use some better error checking
 Replace error popups with an error page or banner
 Make the search bar on the home page find products
+How to switch languages?

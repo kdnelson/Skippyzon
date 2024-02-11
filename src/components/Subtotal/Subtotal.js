@@ -15,7 +15,7 @@ const Subtotal = () => {
         renderText={(value) => (
           <>
             <p>
-              {t('subtotal.subtotal')} ({cart.length} {t('subtotal.items')}): <strong>{value}</strong>
+              {t('subtotal.subTotal')} ({cart.length} {t('subtotal.items')}): <strong>{value}</strong>
             </p>
             <small className="subtotal_gift">
               <input type="checkbox" />{t('subtotal.thisOrderContainsAGift')}
