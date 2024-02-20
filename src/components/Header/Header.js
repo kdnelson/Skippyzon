@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next'
 import SearchIcon from '@mui/icons-material/Search'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket'
 import { Link } from 'react-router-dom'
-import { useUser } from '../../hooks/useUser'
-import { useCart } from '../../hooks/useCart'
+import { useUser, useCart } from '../../hooks'
 
 const Header = () => {
   const { t } = useTranslation()

@@ -3,10 +3,8 @@ import './Payment.css'
 import { useTranslation } from 'react-i18next'
 import CurrencyFormat from 'react-currency-format'
 import CheckoutItem from './../CheckoutItem/CheckoutItem.js'
-import { useCart } from '../../hooks/useCart'
+import { useUser, useCart, useOrder } from '../../hooks'
 import { Link, useNavigate } from 'react-router-dom'
-import { useUser } from '../../hooks/useUser'
-import { useOrder } from '../../hooks/userOrder'
 
 const Payment = () => {
   const { t } = useTranslation()

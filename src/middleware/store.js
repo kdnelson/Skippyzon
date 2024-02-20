@@ -3,10 +3,7 @@ import { persistStore, persistReducer } from 'redux-persist'
 import thunk from 'redux-thunk'
 import { logger } from 'redux-logger'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
-import { userReducer } from './reducers/userReducer'
-import { productReducer } from './reducers/productReducer'
-import { cartReducer } from './reducers/cartReducer'
-import { orderReducer } from './reducers/orderReducer'
+import { userReducer, productReducer, cartReducer, orderReducer  } from './reducers'
 
 const middleware = [
   thunk.withExtraArgument({

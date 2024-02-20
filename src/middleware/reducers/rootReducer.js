@@ -1,7 +1,4 @@
-import { userReducer } from './userReducer'
-import { productReducer } from './productReducer'
-import { cartReducer } from './cartReducer'
-import { orderReducer } from './orderReducer'
+import { userReducer, productReducer, cartReducer, orderReducer } from './index'
 
 const modules = {
   userReducer,

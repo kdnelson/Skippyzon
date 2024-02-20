@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import './CheckoutItem.css'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import { useCart } from '../../hooks/useCart'
+import { useCart } from '../../hooks'
 
 const CheckoutItem = (props) => {
 	const { t } = useTranslation()

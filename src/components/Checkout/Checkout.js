@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next'
 import Subtotal from '../Subtotal/Subtotal.js'
 import { useNavigate } from 'react-router-dom'
 import CheckoutItem from '../CheckoutItem/CheckoutItem.js'
-import { useUser } from '../../hooks/useUser'
-import { useCart } from '../../hooks/useCart'
+import { useUser, useCart } from '../../hooks'
 
 const Checkout = () => {
   const { t } = useTranslation()

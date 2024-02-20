@@ -2,7 +2,7 @@ import './OrderItems.css'
 import { useTranslation } from 'react-i18next'
 import OrderDetails from '../OrderDetails/OrderDetails.js'
 import CurrencyFormat from 'react-currency-format'
-import { useCart } from '../../hooks/useCart'
+import { useCart } from '../../hooks'
 
 const OrderItem = (props) => {
   const { t } = useTranslation()

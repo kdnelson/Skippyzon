@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './Login.css'
 import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
-import { useUser } from '../../hooks/useUser'
+import { useUser } from '../../hooks'
 import { loginValidate } from '../../validation/loginFormValidation'
 
 const Login = () => {

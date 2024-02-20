@@ -1,6 +1,6 @@
 import './OrderDetails.css'
 import { useTranslation } from 'react-i18next'
-import { useCart } from '../../hooks/useCart'
+import { useCart } from '../../hooks'
 
 const OrderDetails = (props) => {
   const { t } = useTranslation()

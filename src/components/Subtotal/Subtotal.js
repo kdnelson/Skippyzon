@@ -2,7 +2,7 @@ import './Subtotal.css'
 import { useTranslation } from 'react-i18next'
 import CurrencyFormat from 'react-currency-format'
 import { useNavigate } from 'react-router-dom'
-import { useCart } from '../../hooks/useCart'
+import { useCart } from '../../hooks'
 
 const Subtotal = () => {
   const { t } = useTranslation()

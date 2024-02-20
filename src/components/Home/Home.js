@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import './Home.css'
 import Product from '../Product/Product.js'
-import { useProduct } from '../../hooks/useProduct'
+import { useProduct } from '../../hooks'
 
 const Home = () => {
   const { products, getAllProducts } = useProduct()
