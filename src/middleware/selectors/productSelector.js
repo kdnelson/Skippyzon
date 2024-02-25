@@ -2,6 +2,11 @@ import { createSelector } from 'reselect'
 
 export const getProductState = state => state?.productState
 
+export const getProductQuery = createSelector(
+  getProductState,
+  productState => productState?.productQuery
+)
+
 export const getProducts = createSelector(
   getProductState,
   productState => productState?.products

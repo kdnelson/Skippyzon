@@ -74,11 +74,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Make the search bar on the home page find products
 Implement Bootstrap and style everything, especially product grid, syle by component and not .css files
 
-
 Add wait spinner on await middleware calls (add a temp pause till AWS services are attached)
 Add Jest with 1 unit test
 Add red slid after an item delete from cart
 Actions can use some better error checking
 Have action errors call error pages or activate error banners
+Add an order list
 How to switch languages?
-Use elint with require() instead of import?

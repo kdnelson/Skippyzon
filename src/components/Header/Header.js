@@ -4,12 +4,13 @@ import { useTranslation } from 'react-i18next'
 import SearchIcon from '@mui/icons-material/Search'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket'
 import { Link } from 'react-router-dom'
-import { useUser, useCart } from '../../hooks'
+import { useUser, useCart, useProduct } from '../../hooks'
 
 const Header = () => {
   const { t } = useTranslation()
   const { user } = useUser()
   const { getCartCounter } = useCart()
+  const { setProductQuery } = useProduct()
 
   return (
     <div className="header">
@@ -22,7 +23,7 @@ const Header = () => {
       </Link>
 
       <div className="header_search">
-        <input className="header_searchInput" type="text" />
+        <input className="header_searchInput" type="text" onChange={(e) => setProductQuery(e.target.value)}/>
         <SearchIcon className="header_searchIcon" />
       </div>
 

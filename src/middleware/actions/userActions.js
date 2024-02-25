@@ -30,7 +30,8 @@ export const removeUserSuccess = () => ({
 })
 
 export const removeUserError = errorMessage => ({
-  type: REMOVE_USER_ERROR
+  type: REMOVE_USER_ERROR,
+  payload: errorMessage
 })
 
 export const addUserAction = data => async dispatch => {

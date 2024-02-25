@@ -7,7 +7,7 @@ export const useOrder = () => {
   const dispatch = useDispatch()
   const orders = useSelector(getOrders)
 
-  const addOrder = async (cart) => {
+  const addOrder = async cart => {
     const data = {
       id: uuidv4(),
       order: cart

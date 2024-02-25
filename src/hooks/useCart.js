@@ -46,7 +46,7 @@ export const useCart = () => {
     return counter
   }
 
-  const getPaymentAndTaxTotal = (cart) => {
+  const getPaymentAndTaxTotal = cart => {
     let total = 0
     cart.forEach(item => {
       total += (parsefloat(item.price) * item.quantity)
@@ -54,7 +54,7 @@ export const useCart = () => {
     return total + (total * 0.03)
   }
 
-  const getCartTotal = (cart) => {
+  const getCartTotal = cart => {
     let total = 0
     cart.forEach(item => {
       total += (parsefloat(item.price) * item.quantity)
