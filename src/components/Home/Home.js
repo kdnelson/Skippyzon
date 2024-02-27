@@ -5,6 +5,7 @@ import { useProduct } from '../../hooks'
 
 const Home = () => {
   const { productQuery, products, getAllProducts } = useProduct()
+  
   useEffect(() => {
     getAllProducts()
   }, [products, productQuery, getAllProducts])
