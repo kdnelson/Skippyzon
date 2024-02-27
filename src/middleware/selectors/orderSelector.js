@@ -2,7 +2,7 @@ import { createSelector } from 'reselect'
 
 export const getOrderState = state => state?.orderState
 
-export const getOrders = createSelector(
+export const getOrdersSelector = createSelector(
   getOrderState,
   orderState => orderState?.order
 )

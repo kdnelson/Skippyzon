@@ -2,7 +2,7 @@ import { createSelector } from 'reselect'
 
 export const getCartState = state => state?.cartState
 
-export const getCart = createSelector(
+export const getCartSelector = createSelector(
   getCartState,
   cartState => cartState?.cart
 )

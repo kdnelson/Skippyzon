@@ -4,11 +4,11 @@ import Product from '../Product/Product.js'
 import { useProduct } from '../../hooks'
 
 const Home = () => {
-  const { productQuery, products, getAllProducts } = useProduct()
-  
+  const { productQuery, products, getProducts } = useProduct()
+
   useEffect(() => {
-    getAllProducts()
-  }, [products, productQuery, getAllProducts])
+    getProducts()
+  }, [products, productQuery, getProducts])
 
   return (
     <div className="home">

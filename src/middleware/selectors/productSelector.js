@@ -2,12 +2,12 @@ import { createSelector } from 'reselect'
 
 export const getProductState = state => state?.productState
 
-export const getProductQuery = createSelector(
+export const getProductQuerySelector = createSelector(
   getProductState,
   productState => productState?.productQuery
 )
 
-export const getProducts = createSelector(
+export const getProductSelector = createSelector(
   getProductState,
   productState => productState?.products
 )

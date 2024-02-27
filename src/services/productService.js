@@ -77,11 +77,11 @@ export const ProductService = () => {
     }
   ]
 
-  const getProducts = async () => {
+  const getServiceProducts = async () => {
     return products
   }
 
   return {
-    getProducts
+    getServiceProducts
   }
 }

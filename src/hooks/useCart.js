@@ -1,7 +1,7 @@
 import parsefloat from 'parsefloat'
 import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
-import { getCart } from '../middleware/selectors/cartSelector'
+import { getCartSelector } from '../middleware/selectors/cartSelector'
 import {
   addCartItemAction,
   incrementCartItemAction,
@@ -11,7 +11,7 @@ import {
 
 export const useCart = () => {
   const dispatch = useDispatch()
-  const cart = useSelector(getCart)
+  const cart = useSelector(getCartSelector)
 
   const addCartItem = async (serialNumber, title, image, price, rating) => {
     const data = {

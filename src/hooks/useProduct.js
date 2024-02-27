@@ -1,17 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { getProductQuery, getProducts } from '../middleware/selectors/productSelector'
+import { getProductQuerySelector, getProductSelector } from '../middleware/selectors/productSelector'
 import { setProductQueryAction, getProductsAction } from '../middleware/actions/productActions'
 
 export const useProduct = () => {
   const dispatch = useDispatch()
-  const productQuery = useSelector(getProductQuery)
-  const products = useSelector(getProducts)
+  const productQuery = useSelector(getProductQuerySelector)
+  const products = useSelector(getProductSelector)
 
   const setProductQuery = query => {
     return dispatch(setProductQueryAction(query))
   }
 
-  const getAllProducts = async () => {
+  const getProducts = async () => {
     return dispatch(getProductsAction())
   }
 
@@ -19,6 +19,6 @@ export const useProduct = () => {
     productQuery,
     products,
     setProductQuery,
-    getAllProducts
+    getProducts
   }
 }
