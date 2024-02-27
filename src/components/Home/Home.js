@@ -5,13 +5,9 @@ import { useProduct } from '../../hooks'
 
 const Home = () => {
   const { productQuery, products, getAllProducts } = useProduct()
-
   useEffect(() => {
-    console.log('Query: ' + productQuery)
-    if (products.length === 0) {
-      getAllProducts()
-    }
-  }, [productQuery, products, getAllProducts])
+    getAllProducts()
+  }, [products, productQuery, getAllProducts])
 
   return (
     <div className="home">
@@ -22,18 +18,24 @@ const Home = () => {
           alt=""
         />
 
-        <div className="home_row">
-          {products.map(o => (
-            <Product
-              key={o.id}
-              serialNumber={o.serialNumber}
-              title={o.title}
-              image={o.image}
-              price={o.price}
-              rating={o.rating}
-            />
-          ))}
-        </div>
+        {products === null
+          ? <div className="home_row">No Products Found</div>
+          : <div className="home_row">
+             {products
+              .filter((o) => o.title.toLowerCase()
+              .includes(productQuery.toLowerCase()))
+                .map(o => (
+                  <Product
+                    key={o.id}
+                    serialNumber={o.serialNumber}
+                    title={o.title}
+                    image={o.image}
+                    price={o.price}
+                    rating={o.rating}
+                  />
+                ))}
+              </div>
+        }
       </div>
     </div>
   )

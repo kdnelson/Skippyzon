@@ -55,7 +55,6 @@ export const getProductsError = errorMessage => ({
 export const getProductsAction = () => async dispatch => {
   try {
     dispatch(getProductsStart())
-
     const response = await productService.getProducts()
 
     dispatch(
