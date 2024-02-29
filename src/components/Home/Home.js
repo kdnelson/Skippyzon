@@ -19,7 +19,7 @@ const Home = () => {
           alt=""
         />
 
-        {products === null
+        {products.filter((o) => o.title.toLowerCase().includes(productQuery.toLowerCase())) == 0
           ? <div className="home_row">No Products Found</div>
           : <div className="home_row">
              {products
