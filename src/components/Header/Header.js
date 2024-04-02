@@ -5,6 +5,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket'
 import { Link } from 'react-router-dom'
 import { useUser, useCart, useProduct } from '../../hooks'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Header = () => {
   const { t } = useTranslation()
@@ -13,43 +14,44 @@ const Header = () => {
   const { setProductQuery } = useProduct()
 
   return (
-    <div className="header">
-      <Link to="/">
-        <img
-          className="header_logo"
-          src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-          alt=""
-        />
-      </Link>
-
-      <div className="header_search">
-        <input className="header_searchInput" type="text" onChange={(e) => setProductQuery(e.target.value)}/>
-        <SearchIcon className="header_searchIcon" />
-      </div>
-
-      <div className="header_nav">
-        <Link to='/login'>
-          <div className="header_option_user">
-            <span className="header_optionLineOne">{t('header.hello')} {!user ? t('header.guest') : user?.email}</span>
-            <span className="header_optionLineTwo">{user ? t('header.signOut') : t('header.signIn')}</span>
-          </div>
-        </Link>
-
-        {user && (
-          <Link to='/orders'>
-            <div className="header_option_orders">
-              <span className="header_optionLineOne">{t('header.returns')}</span>
-              <span className="header_optionLineTwo">{t('header.andOrders')}</span>
+    <div className="container header-style">
+      <div className="row align-items-center">
+        <div className="col-md-7">
+          <div className="d-flex justify-content-start align-items-center">
+            <div className="col-auto">
+              <Link className="logo-style" to="/">Skippyzon</Link>
             </div>
-          </Link>
-        )}
-
-        <Link to="/checkout">
-          <div className="header_optionCart">
-            <ShoppingBasketIcon />
-            <span className="header_optionLineTwo header_cartCount">{getCartCounter()}</span>
+            <div className="col">
+              <div className="d-flex justify-content-end align-items-center ">
+                <input className="col m-2 searchbar-styling" type="text" onChange={(e) => setProductQuery(e.target.value)}/>
+                <div className="col-auto"><SearchIcon /></div>
+              </div>
+            </div>
           </div>
-        </Link>
+        </div>
+        <div className="col-md-5 mt-1 mb-1 header-link-styling">
+          <div className="d-flex mx-2 justify-content-start align-items-center">
+            <div className="col-7">
+              <Link className="link-style" to='/login'>
+                <div className="row">{t('header.hello')} {!user ? t('header.guest') : user?.email}</div>
+                <div className="row">{user ? t('header.signOut') : t('header.signIn')}</div>
+              </Link>
+            </div>
+            <div className="col-3 mx-2 justify-content-end">
+              {user && (
+                <Link className="link-style" to='/orders'>
+                  <div className="row">{t('header.returns')}</div>
+                  <div className="row">{t('header.andOrders')}</div>
+                </Link>)}
+            </div>
+            <div className="col-2">
+              <Link className="link-style" to="/checkout">
+                <ShoppingBasketIcon />
+                {getCartCounter()}
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
