@@ -17,10 +17,18 @@
   text-decoration: none;
 }
 
-.searchbar-styling {
+.searchbar-style {
   color: white;
   background: black;
   border-color: white;
   border-width: 0.1rem;
   border-radius: 0.2rem;
+}
+.searchbar-style:focus {
+  outline: none;
+}
+
+.shopping-cart-style {
+  font-weight: 600;
+  font-size: small;
 }
