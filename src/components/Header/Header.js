@@ -48,7 +48,7 @@ const Header = () => {
               <Link className="link-style shopping-cart-style" to="/checkout">
                 <div className="row">
                   <div className="col-2"><ShoppingBasketIcon /></div>
-                  <div className="col-auto">{getCartCounter()}</div>  
+                  <div className="col-auto">{getCartCounter() > 0 && (getCartCounter())}</div>  
                 </div>
               </Link>
             </div>
