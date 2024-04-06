@@ -15,23 +15,25 @@ const Product = (props) => {
   }, [cart, navigate])
 
   return (
-    <div className="product">
-      <div className="product_info">
-        <p>{title}</p>
-        <p className="product_price">
+    <div className="card h-100">
+      <div className="card-body">
+        <h4 className="card-title">{title}</h4>
+        <p className="card-price">
           <small>$</small>
           <strong>{price}</strong>
         </p>
-        <div className="product_rating">
+        <div className="row">
           {Array(rating)
             .fill()
             .map((_, i) => (
               <p key={i}>🌟</p>
             ))}
         </div>
+        <img src={image} alt="..." />
+        <div className="row">
+          <button className="btn btn-dark" type="submit" onClick={() => addCartItem(serialNumber, title, image, price, rating)}>{t('product.addToCartBtn')}</button>
+        </div>
       </div>
-      <img src={image} alt="" />
-      <button type="submit" onClick={() => addCartItem(serialNumber, title, image, price, rating)}>{t('product.addToCartBtn')}</button>
     </div>
   )
 }

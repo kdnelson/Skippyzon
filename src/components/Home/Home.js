@@ -12,30 +12,28 @@ const Home = () => {
 
   return (
     <div className="container">
-      <img
-        className="home_image"
-        src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
-        alt=""
-      />
-
-      {products.filter((o) => o.title.toLowerCase().includes(productQuery.toLowerCase())) === 0
-        ? <div className="home_row">No Products Found</div>
-        : <div className="home_row">
-            {products
-            .filter((o) => o.title.toLowerCase()
-            .includes(productQuery.toLowerCase()))
-              .map(o => (
-                <Product
-                  key={o.id}
-                  serialNumber={o.serialNumber}
-                  title={o.title}
-                  image={o.image}
-                  price={o.price}
-                  rating={o.rating}
-                />
-              ))}
+      <div className="row">
+        {products.filter((o) => o.title.toLowerCase().includes(productQuery.toLowerCase())) === 0
+          ? <div className="row">No Products Found</div>
+          : <div className="row gy-3 gx-3">
+              {products
+                .filter((o) => o.title.toLowerCase()
+                .includes(productQuery.toLowerCase()))
+                  .map(o => (
+                    <div className="col-lg-4 col-md-6 col-sm-12">
+                      <Product
+                        key={o.id+o.serialNumber}
+                        serialNumber={o.serialNumber}
+                        title={o.title}
+                        image={o.image}
+                        price={o.price}
+                        rating={o.rating}
+                      />
+                    </div>
+                  ))}
             </div>
-      }
+          }
+      </div>
     </div>
   )
 }
