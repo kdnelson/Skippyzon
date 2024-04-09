@@ -10,13 +10,13 @@ const Orders = () => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="row fs-2 fw-bold mt-3 mb-3">{t('orders.yourOrder')}</div>
-          {orders.map(o => (
-            <OrderItems
-              key={o.id}
-              id={o.id}
-              orderItems={o.order}
-            />
-          ))}
+            {orders.map(o => (
+              <OrderItems
+                key={o.id}
+                id={o.id}
+                orderItems={o.order}
+              />
+            ))}
         </div>
       </div>
   )

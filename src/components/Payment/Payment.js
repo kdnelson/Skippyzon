@@ -39,17 +39,17 @@ const Payment = () => {
             <h3>{t('payment.reviewItemsAndDelivery')}</h3>
           </div>
           <div className ="payment_items">
-          {cart.map(o => (
-            <CheckoutItem
-              key={o.id}
-              id={o.id}
-              serialNumber={o.serialNumber}
-              title={o.title}
-              image={o.image}
-              price={o.price}
-              quantity={o.quantity}
-            />
-          ))}
+            {cart.map(o => (
+              <CheckoutItem
+                key={o.id}
+                id={o.id}
+                serialNumber={o.serialNumber}
+                title={o.title}
+                image={o.image}
+                price={o.price}
+                quantity={o.quantity}
+              />
+            ))}
           </div>
         </div>
         <div className="payment_section">
