@@ -19,18 +19,16 @@ const Home = () => {
               {products
                 .filter((o) => o.title.toLowerCase()
                 .includes(productQuery.toLowerCase()))
-                  .map(o => (
-                    <div className="col-sm-12 col-md-6 col-lg-4">
-                      <Product
-                        key={o.id+o.serialNumber}
-                        serialNumber={o.serialNumber}
-                        title={o.title}
-                        image={o.image}
-                        price={o.price}
-                        rating={o.rating}
-                      />
-                    </div>
-                  ))}
+                .map(o => (
+                  <div className="col-sm-12 col-md-6 col-lg-4">
+                    <Product
+                      key={o.id+o.serialNumber}
+                      serialNumber={o.serialNumber}
+                      title={o.title}
+                      image={o.image}
+                      price={o.price}           />
+                  </div>
+                ))}
             </div>
           }
       </div>

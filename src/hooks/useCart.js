@@ -13,14 +13,13 @@ export const useCart = () => {
   const dispatch = useDispatch()
   const cart = useSelector(getCartSelector)
 
-  const addCartItem = async (serialNumber, title, image, price, rating) => {
+  const addCartItem = async (serialNumber, title, image, price) => {
     const data = {
       id: uuidv4(),
       serialNumber,
       title,
       image,
       price,
-      rating,
       quantity: 1
     }
     return dispatch(addCartItemAction(data))

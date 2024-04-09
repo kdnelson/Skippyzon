@@ -4,7 +4,7 @@ import { useCart } from '../../hooks'
 
 const OrderDetails = (props) => {
   const { t } = useTranslation()
-  const { serialNumber, title, image, price, quantity, rating } = props ?? {}
+  const { serialNumber, title, image, price, quantity} = props ?? {}
   const { addCartItem } = useCart()
   return (
     <div className="row fs-5 fw-normal">
@@ -15,7 +15,7 @@ const OrderDetails = (props) => {
       <div className="row">{t('orderdetails.quantity')}: {quantity}</div>
       <div className="col-6">
         <div className="row mt-2 mb-4 align-items-start">
-          <button className="btn btn-dark" type="submit" onClick={() => addCartItem(serialNumber, title, image, price, rating)}>{t('orderdetails.addToCartBtn')}</button>
+          <button className="btn btn-dark orderDetails-button" type="submit" onClick={() => addCartItem(serialNumber, title, image, price)}>{t('orderdetails.addToCartBtn')}</button>
         </div>
       </div>
     </div>

@@ -5,7 +5,6 @@ export const ProductService = () => {
         serialNumber: "121212",
         title: "The Lean Startup: How Constant Innovation Creates Businesses",
         price: '11.96',
-        rating: '5',
         image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"
     },
     {
@@ -13,7 +12,6 @@ export const ProductService = () => {
         serialNumber: "232323",
         title: "Kenwood kMix Stand Mixer for Baking, 5 Litre Glass Bowl",
         price: '239.00',
-        rating: '4',
         image: "https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
     },
     {
@@ -21,7 +19,6 @@ export const ProductService = () => {
         serialNumber: "343434",
         title: "Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor",
         price: '199.99',
-        rating: '4',
         image: "https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg"
     },
     {
@@ -29,7 +26,6 @@ export const ProductService = () => {
         serialNumber: "454545",
         title: "Amazon Echo, Smart speaker with Alexa, Charcoal Fabric",
         price: '98.96',
-        rating: '3',
         image: "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$"
     },
     {
@@ -37,7 +33,6 @@ export const ProductService = () => {
         serialNumber: "565656",
         title: "Mac",
         price: '1099.99',
-        rating: '5',
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSg3hmMnPJoK6VrfH2pZ2czfbSqJ7ksHcLhPQ&usqp=CAU"
     },
     {
@@ -45,7 +40,6 @@ export const ProductService = () => {
         serialNumber: "676767",
         title: "Iphone 11",
         price: '1092.89',
-        rating: '4',
         image: "https://images-na.ssl-images-amazon.com/images/I/51kGDXeFZKL._SL1024_.jpg"
     }
   ];

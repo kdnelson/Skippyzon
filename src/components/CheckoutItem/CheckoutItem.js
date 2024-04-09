@@ -6,7 +6,7 @@ import { useCart } from '../../hooks'
 
 const CheckoutItem = (props) => {
 	const { t } = useTranslation()
-  const { id, serialNumber, title, image, price, rating, quantity, hideButton } = props ?? {}
+  const { id, serialNumber, title, image, price, quantity, hideButton } = props ?? {}
   const navigate = useNavigate()
   const { cart, decrementCartItem, incrementCartItem, removeCartItem } = useCart()
 
@@ -31,13 +31,6 @@ const CheckoutItem = (props) => {
 						<button type="submit" onClick={() => { incrementCartItem(id) }}>+</button>
 					</div>
 				)}
-				<div className="checkoutProduct_rating">
-					{Array(rating)
-					  .fill()
-					  .map((_, i) => (
-							<p key={i}>🌟</p>
-					  ))}
-				</div>
 				<button type="submit" onClick={() => removeCartItem(id)}>{t('checkoutitem.removeFromCartBtn')}</button>
 			</div>
     </div>

@@ -6,7 +6,7 @@ import { useCart } from '../../hooks'
 
 const Product = (props) => {
   const { t } = useTranslation()
-  const { serialNumber, title, image, price, rating } = props ?? {}
+  const { serialNumber, title, image, price } = props ?? {}
   const navigate = useNavigate()
   const { cart, addCartItem } = useCart()
 
@@ -20,15 +20,10 @@ const Product = (props) => {
         <h4 className="card-title title-styling">
           <p>{title}</p>
           ${price}
-          {Array(rating)
-            .fill()
-            .map((_, i) => (
-              <p key={i}>🌟</p>
-            ))}
         </h4>
-        <img class="card-img rounded mx-auto d-block image-styling" src={image} alt="..." />
-        <div class="row mt-4 mx-4 align-items-center">
-          <button className="btn btn-dark" type="submit" onClick={() => addCartItem(serialNumber, title, image, price, rating)}>{t('product.addToCartBtn')}</button>
+        <img className="card-img rounded mx-auto d-block image-styling" src={image} alt="..." />
+        <div className="row mt-4 mx-4">
+          <button className="btn btn-dark" type="submit" onClick={() => addCartItem(serialNumber, title, image, price)}>{t('product.addToCartBtn')}</button>
         </div>
       </div>
     </div>
