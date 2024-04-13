@@ -1,3 +1,8 @@
+.checkoutItem-image {
+  height: 16rem;
+  width: 13rem;
+}
+
 .checkoutProduct {
   display: flex;
   margin-top: 20px;

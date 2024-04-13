@@ -17,40 +17,41 @@ const Checkout = () => {
   }, [cart, navigate])
 
   return (
-    <div className="checkout">
-      <div className="checkout_left">
-        <img
-          className="checkout_ad"
-          src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
-          alt=""
-        />
-        <div>
-          {user === null && cart?.length > 0
-            ? (
-            <h3>{t('checkout.pleaseSignIn')}</h3>
-              )
-            : (
-            <h3>{t('checkout.hello')}, {user?.email}</h3>
-              )}
-          <h2 className="checkout_title">{t('checkout.yourShoppingCart')}</h2>
-          {cart?.map(o => (
-            <CheckoutItem
-              key={o.id}
-              id={o.id}
-              serialNumber={o.serialNumber}
-              title={o.title}
-              image={o.image}
-              price={o.price}
-              quantity={o.quantity}
-            />
-          ))}
-
+    <div className="container">
+      <div className="row">
+        <div className="col-md-6 col-lg-6">
+          <div className="row mt-2 mb-2 justify-content-start">
+            {user === null && cart?.length > 0
+              ? (
+              <h3>{t('checkout.pleaseSignIn')}</h3>
+                )
+              : (
+              <h3>{t('checkout.hello')}, {user?.email}</h3>
+            )}
+          </div>
+        </div>
+        <div className="col-md-6 col-lg-6">
+          <div className="row justify-content-end">
+            {user !== null && cart?.length > 0 && (
+              <div className="col-md-8 col-lg-8">
+                <Subtotal />
+              </div>
+            )}
+          </div>
         </div>
       </div>
-      <div className="checkout_right">
-        {user !== null && cart?.length > 0 && (
-          <Subtotal />
-        )}
+      <div className="row justify-content-start">
+        {cart?.map(o => (
+          <CheckoutItem
+            key={o.id}
+            id={o.id}
+            serialNumber={o.serialNumber}
+            title={o.title}
+            image={o.image}
+            price={o.price}
+            quantity={o.quantity}
+          />
+        ))}
       </div>
     </div>
   )

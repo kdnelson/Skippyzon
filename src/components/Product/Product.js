@@ -17,11 +17,11 @@ const Product = (props) => {
   return (
     <div className="card h-100 shadow p-3 mb-5 bg-body rounded">
       <div className="card-body">
-        <h4 className="card-title title-styling">
+        <h4 className="card-title product-title">
           <p>{title}</p>
           ${price}
         </h4>
-        <img className="card-img rounded mx-auto d-block image-styling" src={image} alt="..." />
+        <img className="card-img rounded mx-auto d-block product-image" src={image} alt="..." />
         <div className="row mt-4 mx-4">
           <button className="btn btn-dark" type="submit" onClick={() => addCartItem(serialNumber, title, image, price)}>{t('product.addToCartBtn')}</button>
         </div>
