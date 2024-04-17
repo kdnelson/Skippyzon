@@ -3,7 +3,7 @@ export const ProductService = () => {
     {
       id: "1",
         serialNumber: "121212",
-        title: "The Lean Startup: How Constant Innovation Creates Businesses",
+        title: "Lean Startup: Constant Innovation Creates Businesses",
         price: '11.96',
         image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"
     },
@@ -17,7 +17,7 @@ export const ProductService = () => {
     {
         id: "3",
         serialNumber: "343434",
-        title: "Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor",
+        title: "Samsung 49' Curved LED Gaming Monitor",
         price: '199.99',
         image: "https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg"
     },

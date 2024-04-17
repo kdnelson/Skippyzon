@@ -6,7 +6,7 @@ import { useCart } from '../../hooks'
 
 const CheckoutItem = (props) => {
 	const { t } = useTranslation()
-  const { id, serialNumber, title, image, price, quantity, hideButton } = props ?? {}
+  const { id, serialNumber, title, image, price, quantity} = props ?? {}
   const navigate = useNavigate()
   const { cart, decrementCartItem, incrementCartItem, removeCartItem } = useCart()
 
@@ -15,24 +15,31 @@ const CheckoutItem = (props) => {
   }, [cart, navigate])
 
   return (
-    <div className='checkoutProduct'>
-      <img className='checkoutProduct_image checkoutItem-image' src={image} alt="..." />
-			<div className='checkoutProduct_info'>
-				<p className='checkoutProduct_serialNumber'>{serialNumber}</p>
-				<p className='checkoutProduct_title'>{title}</p>
-				<p>
-					<small>$</small>
-					<strong>{price}</strong>
-				</p>
-				{!hideButton && (
-					<div>
-						<button type="submit" onClick={() => { decrementCartItem(id) }}>-</button>
-						<strong>&nbsp;{quantity}&nbsp;</strong>
-						<button type="submit" onClick={() => { incrementCartItem(id) }}>+</button>
+		<div className="card h-130 p-3 mb-5 bg-body rounded">
+      <div className="card-body">
+        <h4 className="card-title">
+          <div className="row mb-1">
+						{serialNumber}
 					</div>
-				)}
-				<button type="submit" onClick={() => removeCartItem(id)}>{t('checkoutitem.removeFromCartBtn')}</button>
-			</div>
+					<div className="row mb-1">
+						{title}
+					</div>
+					<div className="row mb-1">
+						${price}
+					</div>
+        </h4>
+        <img className="justify-content-start checkoutItem-image" src={image} alt="..." />
+				<div className="row mt-3 mx-3">
+					<div className="col-auto"><button className="btn btn-warning" type="submit" onClick={() => { decrementCartItem(id) }}>-</button></div>
+					<div className="col-auto mt-2 mx-3"><h6>{quantity}</h6></div>
+					<div className="col-auto"><button className="btn btn-warning" type="submit" onClick={() => { incrementCartItem(id) }}>+</button></div>
+        </div>
+				<div className="row mt-3 mx-3">
+					<div className="col">
+          	<button className="btn btn-dark" type="submit" onClick={() => removeCartItem(id)}>{t('checkoutitem.removeFromCartBtn')}</button>
+					</div>
+        </div>
+      </div>
     </div>
   )
 }

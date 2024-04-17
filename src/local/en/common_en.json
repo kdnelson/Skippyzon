@@ -2,10 +2,10 @@
   "checkout": {
     "pleaseSignIn": "Please sign in.",
     "hello": "Hello",
-    "yourShoppingCart": "Your shopping Cart"
+    "yourShoppingCart": "Your Shopping Cart"
   },
   "checkoutitem": {
-    "removeFromCartBtn": "Remove from Cart"
+    "removeFromCartBtn": "Remove From Cart"
   },
   "header": {
     "hello": "Hello",

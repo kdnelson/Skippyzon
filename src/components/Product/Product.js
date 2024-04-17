@@ -19,6 +19,8 @@ const Product = (props) => {
       <div className="card-body">
         <h4 className="card-title product-title">
           <p>{title}</p>
+        </h4>
+        <h4>
           ${price}
         </h4>
         <img className="card-img rounded mx-auto d-block product-image" src={image} alt="..." />

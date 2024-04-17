@@ -40,7 +40,7 @@ const Checkout = () => {
           </div>
         </div>
       </div>
-      <div className="row justify-content-start">
+      <div className="row mx-1 justify-content-start">
         {cart?.map(o => (
           <CheckoutItem
             key={o.id}

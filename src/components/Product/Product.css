@@ -1,13 +1,8 @@
 .product-title {
-  height: 7rem;
+  height: 5rem;
 }
 
 .product-image {
   height: 16rem;
   width: 13rem;
-}
-
-.product-button {
-  min-width: 15rem;
-  max-width: 15rem;
 }
