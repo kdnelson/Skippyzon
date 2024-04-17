@@ -31,7 +31,7 @@ const CheckoutItem = (props) => {
         <img className="justify-content-start checkoutItem-image" src={image} alt="..." />
 				<div className="row mt-3 mx-3">
 					<div className="col-auto"><button className="btn btn-warning" type="submit" onClick={() => { decrementCartItem(id) }}>-</button></div>
-					<div className="col-auto mt-2 mx-3"><h6>{quantity}</h6></div>
+					<div className="col-auto mt-2"><div className="checkoutItem-spacer"><h5>{quantity}</h5></div></div>
 					<div className="col-auto"><button className="btn btn-warning" type="submit" onClick={() => { incrementCartItem(id) }}>+</button></div>
         </div>
 				<div className="row mt-3 mx-3">
