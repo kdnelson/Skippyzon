@@ -5,7 +5,7 @@
     "yourShoppingCart": "Your Shopping Cart"
   },
   "checkoutitem": {
-    "removeFromCartBtn": "Remove From Cart"
+    "deleteFromCartBtn": "Delete"
   },
   "header": {
     "hello": "Hello",
@@ -49,7 +49,7 @@
   "subtotal": {
     "subTotal": "Subtotal",
     "items": "items",
-    "thisOrderContainsAGift": "This order contains a gift",
+    "thisOrderContainsAGift": "This order is a gift",
     "proceedToCheckoutBtn": "Proceed to Checkout"
   }
 }

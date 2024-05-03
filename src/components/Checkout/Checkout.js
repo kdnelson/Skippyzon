@@ -19,8 +19,8 @@ const Checkout = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-6 col-lg-6">
-          <div className="row mt-2 mb-2 justify-content-start">
+        <div className="col-md-6 col-lg-6 mt-2">
+          <div className="row justify-content-start">
             {user === null && cart?.length > 0
               ? (
               <h3>{t('checkout.pleaseSignIn')}</h3>
@@ -30,7 +30,7 @@ const Checkout = () => {
             )}
           </div>
         </div>
-        <div className="col-md-6 col-lg-6">
+        <div className="col-md-6 col-lg-6 mt-3 mb-3">
           <div className="row justify-content-end">
             {user !== null && cart?.length > 0 && (
               <div className="col-md-8 col-lg-8">

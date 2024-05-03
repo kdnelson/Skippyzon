@@ -1,9 +1,8 @@
 .checkoutItem-image {
-  height: 16rem;
-  width: 13rem;
+  height: 18.7rem;
+  width: 14.7rem;
 }
 
 .checkoutItem-spacer {
-  margin-left: 0.74rem;
-  min-width: 3.3rem;
+  max-width: 2.1rem;
 }

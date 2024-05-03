@@ -76,6 +76,7 @@ Implement Bootstrap and style everything, especially product grid, syle by compo
 Add wait spinner on await middleware calls (add a temp pause till AWS services are attached)
 Add Jest with 1 unit test
 Add red slid after an item delete from cart
+Route to product if searchbar is pressed
 Actions can use some better error checking
 Show delete item button on cart, if count is 1
 Have action errors call error pages or activate error banners

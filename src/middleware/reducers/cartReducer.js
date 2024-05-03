@@ -70,7 +70,7 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
       state.cart.forEach(o => {
         if (o.id === action.payload.id) {
           foundCartItemOnInc = true
-          o.quantity++
+          if(o.quantity < 9) { o.quantity++ }
         }
       })
       if (foundCartItemOnInc === true) {

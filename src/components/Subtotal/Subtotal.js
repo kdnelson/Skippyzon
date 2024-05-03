@@ -11,27 +11,42 @@ const Subtotal = () => {
 
   return (
     <div className="container">
-      <div className="row mt-2 mb-2 justify-content-end">
-        <CurrencyFormat
-          renderText={(value) => (
-            <>
-              <p>
-                {t('subtotal.subTotal')} ({cart.length} {t('subtotal.items')}): <strong>{value}</strong>
-              </p>
-              <small className="subtotal_gift">
-                <input type="checkbox" />{t('subtotal.thisOrderContainsAGift')}
-              </small>
-            </>
-          )}
-          decimalScale={2}
-          value={getCartTotal(cart).toFixed(2)}
-          displayType={'text'}
-          thousandSeparator={true}
-          prefix={'$'}
-        />
-      </div>
       <div className="row justify-content-end">
-        <button onClick={e => navigate('/payment')}>{t('subtotal.proceedToCheckoutBtn')}</button>
+        <div className="card bg-body rounded checkout-background">
+          <div className="card-body">
+            <CurrencyFormat
+              renderText={(value) => (
+                <>
+                  <div className="row justify-content-start">
+                    <p>
+                      {t('subtotal.subTotal')} ({cart.length} {t('subtotal.items')}): <strong>{value}</strong>
+                    </p>
+                  </div>
+                  <div className="row justify-content-start">
+                    <p>
+                      <input type="checkbox" />
+                      &nbsp;
+                      {t('subtotal.thisOrderContainsAGift')}
+                    </p>
+                  </div>
+                </>
+              )}
+              decimalScale={2}
+              value={getCartTotal(cart).toFixed(2)}
+              displayType={'text'}
+              thousandSeparator={true}
+              prefix={'$'}
+            />
+          </div>
+          <div className="row justify-content-end">
+            <button className="btn btn-warning" onClick={e => navigate('/payment')}>{t('subtotal.proceedToCheckoutBtn')}</button>
+          </div>
+        </div>
+
+{/* 
+
+ */}
+
       </div>
     </div>
   )
