@@ -12,7 +12,7 @@ const Subtotal = () => {
   return (
     <div className="container">
       <div className="row justify-content-end">
-        <div className="card bg-body rounded checkout-background">
+        <div className="card bg-body rounded subtotal-background">
           <div className="card-body">
             <CurrencyFormat
               renderText={(value) => (
@@ -39,14 +39,9 @@ const Subtotal = () => {
             />
           </div>
           <div className="row justify-content-end">
-            <button className="btn btn-warning" onClick={e => navigate('/payment')}>{t('subtotal.proceedToCheckoutBtn')}</button>
+            <button className="btn btn-warning" onClick={() => navigate('/payment')}>{t('subtotal.proceedToCheckoutBtn')}</button>
           </div>
         </div>
-
-{/* 
-
- */}
-
       </div>
     </div>
   )
