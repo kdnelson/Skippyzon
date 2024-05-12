@@ -21,7 +21,7 @@ const Checkout = () => {
       <div className="row">
         <div className="col-md-6 col-lg-6 mt-2">
           <div className="row justify-content-start">
-            {user === null && cart?.length > 0
+            {user === null
               ? (
               <h3>{t('checkout.pleaseSignIn')}</h3>
                 )

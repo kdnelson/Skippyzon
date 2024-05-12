@@ -1,10 +1,12 @@
 import { useEffect } from 'react'
 import './Payment.css'
+import { useTranslation } from 'react-i18next'
 import Ordertotal from '../Ordertotal/Ordertotal.js'
 import { useUser, useCart } from '../../hooks'
 import { useNavigate } from 'react-router-dom'
 
 const Payment = () => {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const { user } = useUser()
   const { cart } = useCart()
@@ -18,9 +20,17 @@ const Payment = () => {
       <div className="row">
         <div className="col-md-6 col-lg-6 mt-2">
           <div className="row justify-content-start">
-            <p>{user?.name}</p>
-            <p>{user?.address}</p>
-            <p>{user?.email}</p>
+            {user === null
+              ? (
+              <h3>{t('checkout.pleaseSignIn')}</h3>
+                )
+              : (
+                <>
+                  <p>{user?.name}</p>
+                  <p>{user?.address}</p>
+                  <p>{user?.email}</p>
+                </>
+            )}
           </div>
         </div>
         <div className="col-md-6 col-lg-6 mt-3 mb-3">
