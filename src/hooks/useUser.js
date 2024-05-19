@@ -7,11 +7,13 @@ export const useUser = () => {
   const dispatch = useDispatch()
   const user = useSelector(getUserSelector)
 
-  const addUser = async (email, password) => {
+  const addUser = async (email, password, username, useraddress) => {
     const data = {
       id: uuidv4(),
       email,
-      password
+      password,
+      username,
+      useraddress
     }
 
     return dispatch(addUserAction(data))

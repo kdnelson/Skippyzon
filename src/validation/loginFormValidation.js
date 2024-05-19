@@ -15,5 +15,18 @@ export const loginValidate = (values) => {
   } else if (values.password.length > 10) {
     errors.password = 'Password cannot exceed more than 10 characters'
   }
+
+  if (!values.username) {
+    errors.username = 'Name is required!'
+  } else if (values.username < 3) {
+    errors.username = 'This is not a valid user name!'
+  }
+
+  if (!values.useraddress) {
+    errors.useraddress = 'Address is required!'
+  } else if (values.useraddress < 21) {
+    errors.useraddress = 'This is not a valid user address!'
+  }
+
   return errors
 }

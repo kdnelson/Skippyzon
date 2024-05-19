@@ -18,14 +18,16 @@ const Login = () => {
     removeUser()
 
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      addUser(formValues.email, formErrors.password)
+      addUser(formValues.email, formValues.password, formValues.username, formValues.useraddress)
       navigate('/')
     }
   }, [
     addUser,
     removeUser,
     formValues.email,
-    formErrors.password,
+    formValues.password,
+    formValues.username,
+    formValues.useraddress,
     formErrors,
     isSubmit,
     navigate
@@ -73,6 +75,24 @@ const Login = () => {
           onChange={handleChange}
         />
         <p className="form-errors">{formErrors.password}</p>
+        <h5>{t('login.username')}</h5>
+        <input
+          type="username"
+          name="username"
+          placeholder="Username"
+          value={formValues.username}
+          onChange={handleChange}
+        />
+        <p className="form-errors">{formErrors.username}</p>
+        <h5>{t('login.useraddress')}</h5>
+        <input
+          type="useraddress"
+          name="useraddress"
+          placeholder="Useraddress"
+          value={formValues.useraddress}
+          onChange={handleChange}
+        />
+        <p className="form-errors">{formErrors.useraddress}</p>
         <button className='login_signInButton'>{t('login.signInBtn')}</button>
       </form>
       <p>{t('login.disclaimer')}</p>

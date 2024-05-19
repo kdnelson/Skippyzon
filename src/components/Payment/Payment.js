@@ -26,9 +26,9 @@ const Payment = () => {
                 )
               : (
                 <>
-                  <p>{user?.name}</p>
-                  <p>{user?.address}</p>
-                  <p>{user?.email}</p>
+                  <p>{user?.username}</p>
+                   <p>{user?.email}</p>
+                  <p>{user?.useraddress}</p>   
                 </>
             )}
           </div>
