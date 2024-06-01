@@ -45,59 +45,57 @@ const Login = () => {
   }
 
   return (
-    <div className='login'>
-    <Link to='/'>
-      <img
-        alt=""
-        className="login_logo"
-        src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png'
-      />
-    </Link>
-
-    <div className='login_container'>
-      <h1>{t('login.signIn')}</h1>
-      <form onSubmit={handleSubmit}>
-        <h5>{t('login.email')}</h5>
-        <input
-          type='text'
-          name="email"
-          placeholder="Email"
-          value={formValues.email}
-          onChange={handleChange}
-        />
-        <p className="form-errors">{formErrors.email}</p>
-        <h5>{t('login.password')}</h5>
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formValues.password}
-          onChange={handleChange}
-        />
-        <p className="form-errors">{formErrors.password}</p>
-        <h5>{t('login.username')}</h5>
-        <input
-          type="username"
-          name="username"
-          placeholder="Username"
-          value={formValues.username}
-          onChange={handleChange}
-        />
-        <p className="form-errors">{formErrors.username}</p>
-        <h5>{t('login.useraddress')}</h5>
-        <input
-          type="useraddress"
-          name="useraddress"
-          placeholder="Useraddress"
-          value={formValues.useraddress}
-          onChange={handleChange}
-        />
-        <p className="form-errors">{formErrors.useraddress}</p>
-        <button className='login_signInButton'>{t('login.signInBtn')}</button>
-      </form>
-      <p>{t('login.disclaimer')}</p>
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-auto">
+          <form onSubmit={handleSubmit}>
+            <p className="fs-2 fw-bold mt-3 mb-3">{t('login.signIn')}</p>
+            <p className="fs-6 fw-bold mt-0 mb-0">{t('login.email')}</p>
+            <input
+              type='text'
+              name="email"
+              placeholder="Email"
+              value={formValues.email}
+              onChange={handleChange}
+            />
+            <p className="form-errors">{formErrors.email}</p>
+            <p className="fs-6 fw-bold mt-0 mb-0">{t('login.password')}</p>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formValues.password}
+              onChange={handleChange}
+            />
+            <p className="form-errors">{formErrors.password}</p>
+             <p className="fs-6 fw-bold mt-0 mb-0">{t('login.username')}</p>
+            <input
+              type="username"
+              name="username"
+              placeholder="User Name"
+              value={formValues.username}
+              onChange={handleChange}
+            />
+            <p className="form-errors">{formErrors.username}</p>
+            <p className="fs-6 fw-bold mt-0 mb-0">{t('login.useraddress')}</p>
+            <input
+              type="useraddress"
+              name="useraddress"
+              placeholder="User Address"
+              value={formValues.useraddress}
+              onChange={handleChange}
+            />
+            <p className="form-errors">{formErrors.useraddress}</p>
+            <button className="btn btn-warning btn-signin mt-3 mb-3">{t('login.signInBtn')}</button>
+          </form>
+        </div>
+        <div className="row justify-content-center">
+          <div className="col-8">
+            <p>{t('login.disclaimer')}</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
   )
 }
 
