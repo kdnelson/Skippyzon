@@ -12,31 +12,17 @@ const Subtotal = () => {
   return (
     <div className="container">
       <div className="row justify-content-end">
-        <div className="card bg-body rounded subtotal-background">
+        <div className="card h-100 bg-body rounded subtotal-card">
           <div className="card-body">
-            <CurrencyFormat
-              renderText={(value) => (
-                <>
-                  <div className="row justify-content-start">
-                    <p>
-                      {t('subtotal.subTotal')} ({cart.length} {t('subtotal.items')}): <strong>{value}</strong>
-                    </p>
-                  </div>
-                  <div className="row justify-content-start">
-                    <p>
-                      <input type="checkbox" />
-                      &nbsp;
-                      {t('subtotal.thisOrderContainsAGift')}
-                    </p>
-                  </div>
-                </>
+            <CurrencyFormat renderText={(value) => (
+                <h4>{t('subtotal.subTotal')} ({cart.length} {t('subtotal.items')}): {value}</h4>
               )}
-              decimalScale={2}
-              value={getCartTotal(cart).toFixed(2)}
-              displayType={'text'}
-              thousandSeparator={true}
-              prefix={'$'}
-            />
+                decimalScale={2}
+                value={getCartTotal(cart).toFixed(2)}
+                displayType={'text'}
+                thousandSeparator={true}
+                prefix={'$'}
+              />
           </div>
           <div className="row justify-content-end">
             <button className="btn btn-warning" onClick={() => navigate('/payment')}>{t('subtotal.proceedToCheckoutBtn')}</button>

@@ -11,17 +11,17 @@ const Ordertotal = () => {
   return (
     <div className="container">
       <div className="row justify-content-end">
-        <div className="card bg-body rounded ordertotal-background">
+        <div className="card h-100 bg-body rounded ordertotal-card">
           <div className="card-body">
              <CurrencyFormat renderText={(value) => (
-                <h3>{t('payment.orderTotal')}: {value}</h3>
+                <h4>{t('payment.orderTotal')}: {value}</h4>
               )}
-                  decimalScale={2}
-                  value={getPaymentAndTaxTotal(cart)}
-                  displayType={'text'}
-                  thousandSeparator={true}
-                  prefix={'$'}
-                />
+                decimalScale={2}
+                value={getPaymentAndTaxTotal(cart)}
+                displayType={'text'}
+                thousandSeparator={true}
+                prefix={'$'}
+              />
           </div>
           <div className="row justify-content-end">
             <button className="btn btn-warning" onClick={() => addOrder(cart)}>{t('payment.buyNowBtn')}</button>

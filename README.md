@@ -71,8 +71,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### My notes
 
-Add address to user login as required fields
-
 Add wait spinner on await middleware calls (add a temp pause till AWS services are attached)
 Add Jest with 1 unit test
 Add red slid after an item delete from cart
