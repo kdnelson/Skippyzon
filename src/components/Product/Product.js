@@ -15,17 +15,19 @@ const Product = (props) => {
   }, [cart, navigate])
 
   return (
-    <div className="card h-100 shadow p-3 mb-5 bg-body rounded">
-      <div className="card-body">
-        <h4 className="card-title product-title">
-          <p>{title}</p>
-        </h4>
-        <h4>
-          ${price}
-        </h4>
-        <img className="card-img rounded mx-auto d-block product-image" src={image} alt="..." />
-        <div className="row mt-4 mx-4">
-          <button className="btn btn-dark" type="submit" onClick={() => addCartItem(serialNumber, title, image, price)}>{t('product.addToCartBtn')}</button>
+    <div className="col-sm-12 col-md-6 col-lg-4">
+      <div className="card h-100 shadow p-3 mb-5 bg-body rounded">
+        <div className="card-body">
+          <h4 className="card-title product-title">
+            <p>{title}</p>
+          </h4>
+          <h4>
+            ${price}
+          </h4>
+          <img className="card-img rounded mx-auto d-block product-image" src={image} alt="..." />
+          <div className="row mt-4 mx-4">
+            <button className="btn btn-dark" type="submit" onClick={() => addCartItem(serialNumber, title, image, price)}>{t('product.addToCartBtn')}</button>
+          </div>
         </div>
       </div>
     </div>

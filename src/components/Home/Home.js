@@ -14,11 +14,11 @@ const Home = () => {
     <div className="container">
       <div className="row justify-content-center">
         <div className="row gy-3 gx-3">
-          {products
-            .filter((o) => o.title.toLowerCase()
-            .includes(productQuery.toLowerCase()))
-            .map(o => (
-              <div className="col-sm-12 col-md-6 col-lg-4">
+          {products ? (
+            products
+              .filter((o) => o.title.toLowerCase()
+              .includes(productQuery.toLowerCase()))
+              .map(o => (
                 <Product
                   key={o.id+o.serialNumber}
                   serialNumber={o.serialNumber}
@@ -26,8 +26,8 @@ const Home = () => {
                   image={o.image}
                   price={o.price}
                 />
-              </div>
-            ))}
+              )))
+            : null}
         </div>
       </div>
     </div>
