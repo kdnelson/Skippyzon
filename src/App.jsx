@@ -1,16 +1,18 @@
 import './App.scss';
+import Home from './components/Home/Home'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 const App = () => {
   return (
-    <div className="container">
-      <div className="cutter-main-banner-content">
-        <h2>
-          <div className="row justify-content-center">
-            Skippyzon
-          </div>
-        </h2>
-      </div>
-    </div>
+    <BrowserRouter 
+      future={{
+        v7_relativeSplatPath: true,
+        v7_startTransition: true,
+    }}>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
