@@ -1,13 +1,13 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from './../../hooks/useCounter';
-import { incremented } from './../../middleware/reducers/counterReducer';
+import { increment } from './../../middleware/reducers/counterReducer';
 
 const Home = () => {
   const count = useAppSelector((state) => state.counter.value);
   const dispatch = useAppDispatch();
 
   function handleClick() {
-    dispatch(incremented());
+    dispatch(increment(1));
   }
 
   return (
