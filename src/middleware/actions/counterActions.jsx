@@ -1,33 +1,15 @@
-import {
-  INCREMENT_COUNTER_START,
-  INCREMENT_COUNTER_SUCCESS,
-  INCREMENT_COUNTER_ERROR,
-} from './actionTypes'
+// import { useDispatch } from 'react-redux';
+// import { increment } from './../reducers/counterReducer';
 
-export const incrementCounterStart = () => ({
-  type: INCREMENT_COUNTER_START
-})
+// export const addIncrementAction = (data) => {
+//   const dispatch = useDispatch();
 
-export const incrementCounterSuccess = data => ({
-  type: INCREMENT_COUNTER_SUCCESS,
-  payload: data
-})
+//   try {
+//     dispatch(increment(data))
 
-export const incrementCounterError = errorMessage => ({
-  type: INCREMENT_COUNTER_ERROR,
-  payload: errorMessage
-})
-
-export const incrementCounterAction = data => async dispatch => {
-  try {
-    dispatch(incrementCounterStart())
-
-    dispatch(
-      incrementCounterSuccess({
-        data
-      })
-    )
-  } catch (err) {
-    dispatch(incrementCounterError(err))
-  }
-}
+//     //dispatch(removeUserSuccess())
+//   } catch (err) {
+//     console.log("Error");
+//     //dispatch(removeUserError(err))
+//   }
+// }
