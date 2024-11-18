@@ -1,15 +1,15 @@
-// import { useDispatch } from 'react-redux';
-// import { increment } from './../reducers/counterReducer';
+import {
+  incrementStart,
+  incrementSuccess,
+  incrementError
+} from './../reducers/counterReducer';
 
-// export const addIncrementAction = (data) => {
-//   const dispatch = useDispatch();
+export const addIncrementAction = (data) => dispatch => {
+  try {
+    dispatch(incrementStart())
 
-//   try {
-//     dispatch(increment(data))
-
-//     //dispatch(removeUserSuccess())
-//   } catch (err) {
-//     console.log("Error");
-//     //dispatch(removeUserError(err))
-//   }
-// }
+    dispatch(incrementSuccess(data))
+  } catch (err) {
+    dispatch(incrementError(err))
+  }
+}
