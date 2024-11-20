@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Order } from './../../models/order'
+import { Order } from './../../models/order';
 
 const initialState = {
   Order: new Order[{}],

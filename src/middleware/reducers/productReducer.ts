@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  products: [],
+  productQuery: '',
   isLoading: false,
   errorMessage: ""
 };
@@ -9,15 +11,29 @@ const productReducer = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    incrementStart: (state) => {
+    getProductsStart: (state) => {
       state.isLoading = true,
       state.errorMessage = ""
     },
-    incrementSuccess: (state, action) => {
+    getProductsSuccess: (state, action) => {
+      state.products = action.payload.data,
       state.isLoading = false,
       state.errorMessage = ""
     },
-    incrementError: (state) => {
+    getProductsError: (state) => {
+      state.isLoading = false,
+      state.errorMessage = "Something went very wrong"
+    },
+    setProductQueryStart: (state) => {
+      state.isLoading = true,
+      state.errorMessage = ""
+    },
+    setProductQuerySuccess: (state, action) => {
+      state.productQuery = action.payload.data,
+      state.isLoading = false,
+      state.errorMessage = ""
+    },
+    setProductQueryError: (state) => {
       state.isLoading = false,
       state.errorMessage = "Something went very wrong"
     },
@@ -25,8 +41,11 @@ const productReducer = createSlice({
 });
 
 export const {
-  incrementStart,
-  incrementSuccess,
-  incrementError
+  getProductsStart,
+  getProductsSuccess,
+  getProductsError,
+  setProductQueryStart,
+  setProductQuerySuccess,
+  setProductQueryError,
 } = productReducer.actions;
 export default productReducer.reducer;
