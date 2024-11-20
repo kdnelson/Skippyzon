@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { User } from './../../models/user'
 
 const initialState = {
+  user: null,
   isLoading: false,
   errorMessage: ""
 };
@@ -9,15 +11,17 @@ const userReducer = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    incrementStart: (state) => {
+    addUserStart: (state) => {
       state.isLoading = true,
       state.errorMessage = ""
     },
-    incrementSuccess: (state, action) => {
+    addUserSuccess: (state, action) => {
+      var newUser = User
+      state.user = Object.assign(newUser, action.payload.data),
       state.isLoading = false,
       state.errorMessage = ""
     },
-    incrementError: (state) => {
+    addUserError: (state) => {
       state.isLoading = false,
       state.errorMessage = "Something went very wrong"
     },
@@ -25,8 +29,8 @@ const userReducer = createSlice({
 });
 
 export const {
-  incrementStart,
-  incrementSuccess,
-  incrementError
+  addUserStart,
+  addUserSuccess,
+  addUserError
 } = userReducer.actions;
 export default userReducer.reducer;
