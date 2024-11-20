@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { User } from './../../models/user'
 
 const initialState = {
-  user: null,
+  User: null,
   isLoading: false,
   errorMessage: ""
 };
@@ -17,7 +17,7 @@ const userReducer = createSlice({
     },
     addUserSuccess: (state, action) => {
       var newUser = User
-      state.user = Object.assign(newUser, action.payload.data),
+      state.User = Object.assign(newUser, action.payload.data),
       state.isLoading = false,
       state.errorMessage = ""
     },
