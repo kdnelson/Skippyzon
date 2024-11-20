@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Cart } from './../../models/cart'
 
 const initialState = {
-  Cart: [],
+  Cart: new Cart[{}],
   isLoading: false,
   errorMessage: ""
 };
@@ -51,7 +51,7 @@ const cartReducer = createSlice({
         }
       })
 
-      if (foundCartItemOnInc === true) {
+      if (foundCartItemOnInc) {
         state.Cart = [...state.Cart],
         state.isLoading = false,
         state.errorMessage = ""
@@ -81,8 +81,8 @@ const cartReducer = createSlice({
         }
       })
 
-      if (foundCartItemOnDec === true) {
-        if (removeCartItemOnDec === true) {
+      if (foundCartItemOnDec) {
+        if (removeCartItemOnDec) {
           const removeIndex = state.Cart.findIndex(
             o => o.id === action.payload.id
           )
@@ -92,7 +92,7 @@ const cartReducer = createSlice({
             newDecrementedCart.splice(removeIndex, 1)
           } else {
             console.warn(
-              `Product (id: ${action.id}) not found in cart!`
+              `Product (id: ${action.payload.id}) not found in cart!`
             )
           }
 
@@ -125,7 +125,7 @@ const cartReducer = createSlice({
         }
       })
 
-      if (removeCartItem === true) {
+      if (removeCartItem) {
         const removeIndex = state.Cart.findIndex(
           o => o.id === action.payload.id
         )
@@ -135,7 +135,7 @@ const cartReducer = createSlice({
           newCartOnItemRemoval.splice(removeIndex, 1)
         } else {
           console.warn(
-            `Product (id: ${action.id}) not found in cart!`
+            `Product (id: ${action.payload.id}) not found in cart!`
           )
         }
         state.Cart = newCartOnItemRemoval,
