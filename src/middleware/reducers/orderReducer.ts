@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Order } from './../../models/order';
 
 const initialState = {
-  Order: new Order[{}],
+  order: Order[{}],
   isLoading: false,
   errorMessage: ""
 };
@@ -16,7 +16,7 @@ const orderReducer = createSlice({
       state.errorMessage = ""
     },
     addOrderSuccess: (state, action) => {
-      state.Order = [...state.Order, action.payload.data],
+      state.order =  [...state.order, action.payload.data],
       state.isLoading =  false,
       state.errorMessage = ""
     },
@@ -29,10 +29,10 @@ const orderReducer = createSlice({
       state.errorMessage = ""
     },
     removeOrderSuccess: (state, action) => {
-      const index = state.Order.findIndex(
+      const index = state.order.findIndex(
         o => o.id === action.payload.id
       )
-      const newOrder = [...state.Order]
+      const newOrder = [...state.order]
 
       if (index >= 0) {
         newOrder.splice(index, 1)
@@ -42,7 +42,7 @@ const orderReducer = createSlice({
         )
       }
 
-      state.Order = newOrder,
+      state.order = newOrder,
       state.isLoading = false,
       state.errorMessage = ""
     },
@@ -55,7 +55,7 @@ const orderReducer = createSlice({
       state.errorMessage = ""
     },
     emptyOrderSuccess: (state) => {
-      state.Order = [],
+      state.order = [],
       state.isLoading = false,
       state.errorMessage = ""
     },

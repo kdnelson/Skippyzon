@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Product } from './../../models/product';
 
 const initialState = {
-  products: [],
+  products: Product[{}],
   productQuery: '',
   isLoading: false,
   errorMessage: ""
