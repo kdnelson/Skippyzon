@@ -8,7 +8,7 @@ import {
   emptyOrderStart,
   emptyOrderSuccess,
   emptyOrderError
-} from '../reducers/cartReducer';
+} from '../reducers/orderReducer';
 
 export const addOrderAction = (data) => dispatch => {
   try {
