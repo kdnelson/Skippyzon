@@ -1,5 +1,5 @@
 import './App.scss';
-import Home from './components/Home/Home'
+import Counter from './components/Counter/Counter'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
         v7_startTransition: true,
     }}>
       <Routes>
-        <Route path="/" element={<Home />}/>
+        <Route path="/" element={<Counter />}/>
       </Routes>
     </BrowserRouter>
   )
