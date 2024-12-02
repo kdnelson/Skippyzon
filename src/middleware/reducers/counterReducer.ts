@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: 0,
+  count: 0,
   isLoading: false,
   errorMessage: ""
 };
@@ -15,7 +15,7 @@ const counterReducer = createSlice({
       state.errorMessage = ""
     },
     incrementSuccess: (state, action) => {
-      state.value += action.payload.value;
+      state.count += action.payload.count;
       state.isLoading = false,
       state.errorMessage = ""
     },

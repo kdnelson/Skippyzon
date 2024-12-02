@@ -3,11 +3,11 @@ import { addIncrementAction } from './../middleware/actions/counterActions';
 
 export const useCounter = () => {
   const dispatch = useAppDispatch();
-  const count = useAppSelector((state) => state.counter.value);
+  const count = useAppSelector((state) => state.counter.count);
 
-  const addIncrement = (value) => {
+  const addIncrement = (count) => {
     const data = {
-      value: value
+      count: count
     }
     return dispatch(addIncrementAction(data))
   }

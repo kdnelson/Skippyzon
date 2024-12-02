@@ -1,4 +1,4 @@
-import { useAppDispatch } from './useBase';
+import { useAppDispatch, useAppSelector } from './useBase';
 import {
   getProductsAction,
   setProductQueryAction,
@@ -6,22 +6,20 @@ import {
 
 export const useProduct = () => {
   const dispatch = useAppDispatch();
+  const productQuery = useAppSelector((state) => state.product.productQuery);
+  const products = useAppSelector((state) => state.product.products);
 
-  const getProducts = (value) => {
-    const data = {
-      value: value
-    }
-    return dispatch(getProductsAction(data))
+  const setProductQuery = query => {
+    return dispatch(setProductQueryAction(query))
   }
 
-  const setProductQuery = (value) => {
-    const data = {
-      value: value
-    }
-    return dispatch(setProductQueryAction(data))
+  const getProducts = async () => {
+    return dispatch(getProductsAction())
   }
 
   return {
+    productQuery,
+    products,
     getProducts,
     setProductQuery,
   }

@@ -6,12 +6,22 @@ import {
   setProductQuerySuccess,
   setProductQueryError,
 } from '../reducers/productReducer';
+import { ProductService } from './../../services/productService'
 
-export const getProductsAction = (data) => dispatch => {
+const productService = ProductService()
+
+export const getProductsAction = () => async dispatch => {
   try {
     dispatch(getProductsStart())
+    const response = await productService.getServiceProducts()
 
-    dispatch(getProductsSuccess(data))
+    dispatch(
+      getProductsSuccess({
+        data: response
+      })
+    )
+
+    return response
   } catch (err) {
     dispatch(getProductsError(err))
   }

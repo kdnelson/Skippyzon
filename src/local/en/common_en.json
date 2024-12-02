@@ -1,0 +1,57 @@
+{
+  "checkout": {
+    "pleaseSignIn": "Please sign in.",
+    "hello": "Hello",
+    "yourShoppingCart": "Your Shopping Cart"
+  },
+  "checkoutitem": {
+    "deleteFromCartBtn": "Delete"
+  },
+  "header": {
+    "hello": "Hello",
+    "guest": "Guest",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "returns": "Returns",
+    "andOrders": "& Orders"
+  },
+  "login": {
+    "signIn": "Sign-in",
+    "email": "E-mail",
+    "password": "Password",
+    "username": "Name",
+    "useraddress": "Address",
+    "signInBtn": "Sign In",
+    "disclaimer": "You are signing-in to a fake E-commerce website.  Items ordered will never arive, and payments are always fictitious with no collection made from any finacial institution."
+  },
+  "orders": {
+    "yourOrder": "Your Orders"
+  },
+  "orderdetails": {
+    "price": "Price",
+    "quantity": "Quantity",
+    "addToCartBtn": "Add To Cart"
+  },
+  "orderitems": {
+    "orderId": "Order Id",
+    "total": "Total"
+  },
+  "payment": {
+    "checkout": "Checkout",
+    "items": "items",
+    "deliveryAddress": "Delivery Address",
+    "reviewItemsAndDelivery": "Review Items and Delivery",
+    "paymentMethod": "Payment Method",
+    "orderTotal": "Order Total",
+    "buyNowBtn": "Buy Now"
+  },
+  "product": {
+    "addToCartBtn": "Add To Cart"
+  },
+  "subtotal": {
+    "subTotal": "Subtotal",
+    "items": "items",
+    "thisOrderContainsAGift": "This order is a gift",
+    "proceedToCheckoutBtn": "Proceed to Checkout"
+  }
+}
