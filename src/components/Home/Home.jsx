@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <div className="row justify-content-center">
+      <div className="row mb-5 justify-content-center">
         <div className="row gy-3 gx-3">
           {products ? (
             products

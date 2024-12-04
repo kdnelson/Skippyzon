@@ -30,8 +30,7 @@ export const getProductsAction = () => async dispatch => {
 export const setProductQueryAction = (data) => dispatch => {
   try {
     dispatch(setProductQueryStart())
-
-    dispatch(setProductQuerySuccess(data))
+    dispatch(setProductQuerySuccess({data}))
   } catch (err) {
     dispatch(setProductQueryError(err))
   }
