@@ -7,7 +7,7 @@ export const useCounter = () => {
 
   const addIncrement = (count) => {
     const data = {
-      count: count
+      count
     }
     return dispatch(addIncrementAction(data))
   }

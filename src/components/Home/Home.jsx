@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import './Home.scss'
 import Product from '../Product/product.jsx'
-import { useProduct } from '../../hooks'
+import { useProduct } from '../../hooks/index.jsx'
 
 const Home = () => {
   const { productQuery, products, getProducts } = useProduct()

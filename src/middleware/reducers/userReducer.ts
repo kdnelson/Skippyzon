@@ -1,10 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { User } from './../../models/user';
 
 const initialState = {
-  User: null,
+  id: "",
+  email: "",
+  password: "",
+  username: "",
+  useraddress: "",
   isLoading: false,
-  errorMessage: ""
+  errorMessage: "",
 };
 
 const userReducer = createSlice({
@@ -16,12 +19,32 @@ const userReducer = createSlice({
       state.errorMessage = ""
     },
     addUserSuccess: (state, action) => {
-      var newUser = User
-      state.User = Object.assign(newUser, action.payload.data),
+      state.id = action.payload.id,
+      state.email = action.payload.email,
+      state.password = action.payload.password,
+      state.username = action.payload.username,
+      state.useraddress = action.payload.useraddress,
       state.isLoading = false,
       state.errorMessage = ""
     },
     addUserError: (state) => {
+      state.isLoading = false,
+      state.errorMessage = "Something went very wrong"
+    },
+    removeUserStart: (state) => {
+      state.isLoading = true,
+      state.errorMessage = ""
+    },
+    removeUserSuccess: (state) => {
+      state.id = "",
+      state.email = "",
+      state.password = "",
+      state.username = "",
+      state.useraddress = "",
+      state.isLoading = false,
+      state.errorMessage = ""
+    },
+    removeUserError: (state) => {
       state.isLoading = false,
       state.errorMessage = "Something went very wrong"
     },
@@ -31,6 +54,9 @@ const userReducer = createSlice({
 export const {
   addUserStart,
   addUserSuccess,
-  addUserError
+  addUserError,
+  removeUserStart,
+  removeUserSuccess,
+  removeUserError
 } = userReducer.actions;
 export default userReducer.reducer;

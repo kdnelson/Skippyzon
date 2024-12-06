@@ -1,5 +1,7 @@
 export const User = {
   id: '',
   email: '',
-  password: ''
+  password: '',
+  username: '',
+  useraddress: '',
 }

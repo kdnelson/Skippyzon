@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Header = () => {
   const { t } = useTranslation()
-  const { user } = useUser()
+  const { email } = useUser()
   const { getCartCounter } = useCart()
   const { setProductQuery } = useProduct()
 
@@ -33,12 +33,12 @@ const Header = () => {
           <div className="d-flex mx-3 justify-content-start align-items-center">
             <div className="col-7">
               <Link className="link-style" to='/login'>
-                <div className="row">{t('header.hello')} {!user ? t('header.guest') : user?.email}</div>
-                <div className="row fs-6 fw-bold">{user ? t('header.signOut') : t('header.signIn')}</div>
+                <div className="row">{t('header.hello')} {!email ? t('header.guest') : email}</div>
+                <div className="row fs-6 fw-bold">{email ? t('header.signOut') : t('header.signIn')}</div>
               </Link>
             </div>
             <div className="col-3 mx-2 justify-content-end">
-              {user && (
+              {email && (
                 <Link className="link-style" to='/orders'>
                   <div className="row">{t('header.returns')}</div>
                   <div className="row fs-6 fw-bold">{t('header.andOrders')}</div>
