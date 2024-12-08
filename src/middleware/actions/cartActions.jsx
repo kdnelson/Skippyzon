@@ -1,54 +1,50 @@
 import {
-  addToCartStart,
-  addToCartSuccess,
-  addToCartError,
+  addCartItemStart,
+  addCartItemSuccess,
+  addCartItemError,
   incrementCartItemStart,
   incrementCartItemSuccess,
   incrementCartItemError,
   decrementCartItemStart,
   decrementCartItemSuccess,
   decrementCartItemError,
-  removeFromCartStart,
-  removeFromCartSuccess,
-  removeFromCartError,
+  removeCartItemStart,
+  removeCartItemSuccess,
+  removeCartItemError,
 } from '../reducers/cartReducer';
 
-export const addToCartAction = (data) => dispatch => {
+export const addCartItemAction = data => dispatch => {
   try {
-    dispatch(addToCartStart())
-
-    dispatch(addToCartSuccess(data))
+    dispatch(addCartItemStart())
+    dispatch(addCartItemSuccess({data}))
   } catch (err) {
-    dispatch(addToCartError(err))
+    dispatch(addCartItemError(err))
   }
 }
 
-export const incrementCartItemAction = (data) => dispatch => {
+export const incrementCartItemAction = data => dispatch => {
   try {
     dispatch(incrementCartItemStart())
-
     dispatch(incrementCartItemSuccess(data))
   } catch (err) {
     dispatch(incrementCartItemError(err))
   }
 }
 
-export const decrementCartItemAction = (data) => dispatch => {
+export const decrementCartItemAction = data => dispatch => {
   try {
     dispatch(decrementCartItemStart())
-
     dispatch(decrementCartItemSuccess(data))
   } catch (err) {
     dispatch(decrementCartItemError(err))
   }
 }
 
-export const removeFromCartAction = (data) => dispatch => {
+export const removeCartItemAction = data => dispatch => {
   try {
-    dispatch(removeFromCartStart())
-
-    dispatch(removeFromCartSuccess(data))
+    dispatch(removeCartItemStart())
+    dispatch(removeCartItemSuccess(data))
   } catch (err) {
-    dispatch(removeFromCartError(err))
+    dispatch(removeCartItemError(err))
   }
 }

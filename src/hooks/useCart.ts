@@ -1,47 +1,50 @@
 import { useAppDispatch, useAppSelector } from './useBase';
 import parsefloat from 'parsefloat'
+import { v4 as uuidv4 } from 'uuid'
 import {
-  addToCartAction,
+  addCartItemAction,
   incrementCartItemAction,
   decrementCartItemAction,
-  removeFromCartAction,
+  removeCartItemAction,
 } from './../middleware/actions/cartActions';
 
 export const useCart = () => {
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cart.cart);
 
-  const addToCart = (value) => {
+  const addCartItem = async (serialNumber, title, image, price) => {
     const data = {
-      value: value
+      id: uuidv4(),
+      serialNumber,
+      title,
+      image,
+      price,
+      quantity: 1
     }
-    return dispatch(addToCartAction(data))
+    return dispatch(addCartItemAction(data))
   }
 
-  const incrementCartItemCart = (value) => {
+  const incrementCartItem = item => {
     const data = {
-      value: value
+      value: item
     }
     return dispatch(incrementCartItemAction(data))
   }
 
-  const decrementCartItemCart = (value) => {
+  const decrementCartItem = item => {
     const data = {
-      value: value
+      value: item
     }
     return dispatch(decrementCartItemAction(data))
   }
 
-  const removeFromCart = (value) => {
-    const data = {
-      value: value
-    }
-    return dispatch(removeFromCartAction(data))
+  const removeCartItem = id => {
+    return dispatch(removeCartItemAction(id))
   }
 
   const getCartCounter = () => {
     let counter = 0
-    cart?.forEach(item => {
+    cart?.map(item => {
       counter += item.quantity
     })
     return counter
@@ -49,7 +52,7 @@ export const useCart = () => {
 
   const getPaymentAndTaxTotal = cart => {
     let total = 0
-    cart?.forEach(item => {
+    cart?.map(item => {
       total += (parsefloat(item.price) * item.quantity)
     })
     return total + (total * 0.03)
@@ -57,17 +60,17 @@ export const useCart = () => {
 
   const getCartTotal = cart => {
     let total = 0
-    cart?.forEach(item => {
+    cart?.map(item => {
       total += (parsefloat(item.price) * item.quantity)
     })
     return total
   }
 
   return {
-    addToCart,
-    incrementCartItemCart,
-    decrementCartItemCart,
-    removeFromCart,
+    addCartItem,
+    incrementCartItem,
+    decrementCartItem,
+    removeCartItem,
     getCartCounter,
     getPaymentAndTaxTotal,
     getCartTotal,

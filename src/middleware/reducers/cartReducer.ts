@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Cart } from './../../models/cart';
+import { Cart } from '../../models/cart';
 
 const initialState = {
-  cart: Cart[{}],
+  cart: [] as typeof Cart[],
   isLoading: false,
   errorMessage: ""
 };
@@ -11,21 +11,21 @@ const cartReducer = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCartStart: (state) => {
+    addCartItemStart: state => {
       state.isLoading = true,
       state.errorMessage = ""
     },
-    addToCartSuccess: (state, action) => {
+    addCartItemSuccess: (state, action) => {
       var cartAddHit = false
-      state.cart.forEach(o => {
-        if (o.title === action.payload.data.title) {
+      state.cart?.map(o => {
+        if (o.serialNumber === action.payload.data.serialNumber) {
           cartAddHit = true
           o.quantity++
         }
       })
 
       if (cartAddHit === false) {
-        state.cart = [state.cart, action.payload.data],
+        state.cart.push(action.payload.data),
         state.isLoading = false,
         state.errorMessage = ""
       } else {
@@ -34,17 +34,17 @@ const cartReducer = createSlice({
         state.errorMessage = ""
       }
     },
-    addToCartError: (state) => {
+    addCartItemError: state => {
       state.isLoading = false,
       state.errorMessage = "Something went very wrong"
     },
-    incrementCartItemStart: (state) => {
+    incrementCartItemStart: state => {
       state.isLoading = true,
       state.errorMessage = ""
     },
     incrementCartItemSuccess: (state, action) => {
       var foundCartItemOnInc = false
-      state.cart.forEach(o => {
+      state.cart?.map(o => {
         if (o.id === action.payload.id) {
           foundCartItemOnInc = true
           if(o.quantity < 9) { o.quantity++ }
@@ -60,18 +60,18 @@ const cartReducer = createSlice({
         state.errorMessage = ""
       }
     },
-    incrementCartItemError: (state) => {
+    incrementCartItemError: state => {
       state.isLoading = false,
       state.errorMessage = ""
     },
-    decrementCartItemStart: (state) => {
+    decrementCartItemStart: state => {
       state.isLoading = true,
       state.errorMessage = ""
     },
     decrementCartItemSuccess: (state, action) => {
       var foundCartItemOnDec = false
       var removeCartItemOnDec = false
-      state.cart.forEach(o => {
+      state.cart?.map(o => {
         if (o.id === action.payload.id) {
           foundCartItemOnDec = true
           o.quantity--
@@ -109,17 +109,17 @@ const cartReducer = createSlice({
         state.errorMessage = ""
       }
     },
-    decrementCartItemError: (state) => {
+    decrementCartItemError: state => {
       state.isLoading = false,
       state.errorMessage = ""
     },
-    removeFromCartStart: (state) => {
+    removeCartItemStart: state => {
       state.isLoading = true,
       state.errorMessage = ""
     },
-    removeFromCartSuccess: (state, action) => {
+    removeCartItemSuccess: (state, action) => {
      var removeCartItem = false
-      state.cart.forEach(o => {
+      state.cart?.map(o => {
         if (o.id === action.payload.id) {
           removeCartItem = true
         }
@@ -147,7 +147,7 @@ const cartReducer = createSlice({
         state.errorMessage = ""
       }
     },
-    removeFromCartError: (state) => {
+    removeCartItemError: state => {
       state.isLoading = false,
       state.errorMessage = ""
     },
@@ -155,17 +155,17 @@ const cartReducer = createSlice({
 });
 
 export const {
-  addToCartStart,
-  addToCartSuccess,
-  addToCartError,
+  addCartItemStart,
+  addCartItemSuccess,
+  addCartItemError,
   incrementCartItemStart,
   incrementCartItemSuccess,
   incrementCartItemError,
   decrementCartItemStart,
   decrementCartItemSuccess,
   decrementCartItemError,
-  removeFromCartStart,
-  removeFromCartSuccess,
-  removeFromCartError
+  removeCartItemStart,
+  removeCartItemSuccess,
+  removeCartItemError
 } = cartReducer.actions;
 export default cartReducer.reducer;

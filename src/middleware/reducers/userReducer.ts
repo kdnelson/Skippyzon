@@ -14,7 +14,7 @@ const userReducer = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    addUserStart: (state) => {
+    addUserStart: state => {
       state.isLoading = true,
       state.errorMessage = ""
     },
@@ -27,15 +27,15 @@ const userReducer = createSlice({
       state.isLoading = false,
       state.errorMessage = ""
     },
-    addUserError: (state) => {
+    addUserError: state => {
       state.isLoading = false,
       state.errorMessage = "Something went very wrong"
     },
-    removeUserStart: (state) => {
+    removeUserStart: state => {
       state.isLoading = true,
       state.errorMessage = ""
     },
-    removeUserSuccess: (state) => {
+    removeUserSuccess: state => {
       state.id = "",
       state.email = "",
       state.password = "",
@@ -44,7 +44,7 @@ const userReducer = createSlice({
       state.isLoading = false,
       state.errorMessage = ""
     },
-    removeUserError: (state) => {
+    removeUserError: state => {
       state.isLoading = false,
       state.errorMessage = "Something went very wrong"
     },

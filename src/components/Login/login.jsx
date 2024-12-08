@@ -3,7 +3,7 @@ import './Login.scss'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../../hooks'
-import { loginValidate } from '../../validation/loginFormValidation'
+import { loginValidate } from '../../Validation/loginFormValidation'
 
 const Login = () => {
   const { t } = useTranslation()

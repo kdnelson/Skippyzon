@@ -10,7 +10,7 @@ const counterReducer = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    incrementStart: (state) => {
+    incrementStart: state => {
       state.isLoading = true,
       state.errorMessage = ""
     },
@@ -19,7 +19,7 @@ const counterReducer = createSlice({
       state.isLoading = false,
       state.errorMessage = ""
     },
-    incrementError: (state) => {
+    incrementError: state => {
       state.isLoading = false,
       state.errorMessage = "Something went very wrong"
     },

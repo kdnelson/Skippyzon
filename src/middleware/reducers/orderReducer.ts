@@ -11,7 +11,7 @@ const orderReducer = createSlice({
   name: 'order',
   initialState,
   reducers: {
-    addOrderStart: (state) => {
+    addOrderStart: state => {
       state.isLoading = true,
       state.errorMessage = ""
     },
@@ -20,11 +20,11 @@ const orderReducer = createSlice({
       state.isLoading =  false,
       state.errorMessage = ""
     },
-    addOrderError: (state) => {
+    addOrderError: state => {
       state.isLoading = false,
       state.errorMessage = "Something went very wrong"
     },
-    removeOrderStart: (state) => {
+    removeOrderStart: state => {
       state.isLoading = true,
       state.errorMessage = ""
     },
@@ -46,20 +46,20 @@ const orderReducer = createSlice({
       state.isLoading = false,
       state.errorMessage = ""
     },
-    removeOrderError: (state) => {
+    removeOrderError: state => {
       state.isLoading = false,
       state.errorMessage = "Something went very wrong"
     },
-    emptyOrderStart: (state) => {
+    emptyOrderStart: state => {
       state.isLoading = true,
       state.errorMessage = ""
     },
-    emptyOrderSuccess: (state) => {
+    emptyOrderSuccess: state => {
       state.order = [],
       state.isLoading = false,
       state.errorMessage = ""
     },
-    emptyOrderError: (state) => {
+    emptyOrderError: state => {
       state.isLoading = false,
       state.errorMessage = "Something went very wrong"
     },

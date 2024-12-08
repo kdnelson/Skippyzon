@@ -1,5 +1,7 @@
 export const Product = {
-  id: '',
-  title: '',
-  quantity: '',
+  id: "",
+  serialNumber: "",
+  title: "",
+  price: "",
+  image: "",
 }

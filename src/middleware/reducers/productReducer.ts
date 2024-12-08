@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Product } from './../../models/product';
 
 const initialState = {
-  products: Product[{}],
+  products: [] as typeof Product[],
   productQuery: '',
   isLoading: false,
   errorMessage: ""
@@ -12,7 +12,7 @@ const productReducer = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    getProductsStart: (state) => {
+    getProductsStart: state => {
       state.isLoading = true,
       state.errorMessage = ""
     },
@@ -21,11 +21,11 @@ const productReducer = createSlice({
       state.isLoading = false,
       state.errorMessage = ""
     },
-    getProductsError: (state) => {
+    getProductsError: state => {
       state.isLoading = false,
       state.errorMessage = "Something went very wrong"
     },
-    setProductQueryStart: (state) => {
+    setProductQueryStart: state => {
       state.isLoading = true,
       state.errorMessage = ""
     },
@@ -34,7 +34,7 @@ const productReducer = createSlice({
       state.isLoading = false,
       state.errorMessage = ""
     },
-    setProductQueryError: (state) => {
+    setProductQueryError: state => {
       state.isLoading = false,
       state.errorMessage = "Something went very wrong"
     },

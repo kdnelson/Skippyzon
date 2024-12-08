@@ -1,5 +1,8 @@
 export const Cart = {
-  id: '',
-  title: '',
-  quantity: '',
+  id: "",
+  serialNumber: "",
+  title: "",
+  image: "",
+  price: "",
+  quantity: 0,
 }
