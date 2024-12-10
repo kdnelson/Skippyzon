@@ -4,7 +4,9 @@ import { addUserAction, removeUserAction } from './../middleware/actions/userAct
 
 export const useUser = () => {
   const dispatch = useAppDispatch();
+  const username = useAppSelector((state) => state.user.username);
   const email = useAppSelector((state) => state.user.email);
+  const useraddress = useAppSelector((state) => state.user.useraddress);
 
   const addUser = async (email: string, password: string, username: string, useraddress: string) => {
     const data = {
@@ -23,7 +25,9 @@ export const useUser = () => {
   }
 
   return {
+    username,
     email,
+    useraddress,
     addUser,
     removeUser,
   }

@@ -67,6 +67,7 @@ export const useCart = () => {
   }
 
   return {
+    cart,
     addCartItem,
     incrementCartItem,
     decrementCartItem,
