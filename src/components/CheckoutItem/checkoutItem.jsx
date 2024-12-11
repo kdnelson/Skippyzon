@@ -15,7 +15,7 @@ const CheckoutItem = (props) => {
   }, [cart, navigate])
 
   return (
-		<div className="card h-130 p-3 mb-5 bg-body rounded">
+		<div className="card h-130 p-3 mb-3 bg-body rounded">
       <div className="card-body">
         <h4 className="card-title">
           <div className="row mb-1">

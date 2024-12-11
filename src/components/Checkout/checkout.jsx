@@ -19,18 +19,18 @@ const Checkout = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-6 col-lg-6 mt-2">
-          <div className="row justify-content-start">
+        <div className="col-md-6 col-lg-6 mt-3 gy-0 gx-4">
+          <div className="row">
             {email === null
               ? ( 
               <h3>{t('checkout.pleaseSignIn')}</h3>
-                )
+                ) 
               : (
               <h3>{t('checkout.hello')}, {email}</h3>
             )}
           </div>
         </div>
-        <div className="col-md-6 col-lg-6 mt-3 mb-3">
+        <div className="col-md-6 col-lg-6 mt-3 mb-3 gy-0 gx-0">
           <div className="row justify-content-end">
             {email !== null && (
               <div className="col-md-8 col-lg-8">
@@ -40,7 +40,7 @@ const Checkout = () => {
           </div>
         </div>
       </div>
-      <div className="row mx-1 justify-content-start">
+      <div className="row justify-content-start">
         {cart?.map(o => (
           <CheckoutItem
             key={o.id}

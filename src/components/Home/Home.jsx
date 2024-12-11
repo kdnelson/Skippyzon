@@ -12,8 +12,8 @@ const Home = () => {
 
   return (
     <div className="container">
-      <div className="row mb-5 justify-content-center">
-        <div className="row gy-3 gx-3">
+      <div className="row mt-3 mb-5 justify-content-center">
+        <div className="row gy-0 gx-0">
           {products ? (
             products
               .filter((o) => o.title.toLowerCase()
