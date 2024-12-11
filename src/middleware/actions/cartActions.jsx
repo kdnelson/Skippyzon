@@ -22,28 +22,28 @@ export const addCartItemAction = data => dispatch => {
   }
 }
 
-export const incrementCartItemAction = data => dispatch => {
+export const incrementCartItemAction = id => dispatch => {
   try {
     dispatch(incrementCartItemStart())
-    dispatch(incrementCartItemSuccess(data))
+    dispatch(incrementCartItemSuccess({id}))
   } catch (err) {
     dispatch(incrementCartItemError(err))
   }
 }
 
-export const decrementCartItemAction = data => dispatch => {
+export const decrementCartItemAction = id => dispatch => {
   try {
     dispatch(decrementCartItemStart())
-    dispatch(decrementCartItemSuccess(data))
+    dispatch(decrementCartItemSuccess({id}))
   } catch (err) {
     dispatch(decrementCartItemError(err))
   }
 }
 
-export const removeCartItemAction = data => dispatch => {
+export const removeCartItemAction = id => dispatch => {
   try {
     dispatch(removeCartItemStart())
-    dispatch(removeCartItemSuccess(data))
+    dispatch(removeCartItemSuccess({id}))
   } catch (err) {
     dispatch(removeCartItemError(err))
   }

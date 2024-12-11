@@ -24,18 +24,12 @@ export const useCart = () => {
     return dispatch(addCartItemAction(data))
   }
 
-  const incrementCartItem = item => {
-    const data = {
-      value: item
-    }
-    return dispatch(incrementCartItemAction(data))
+  const incrementCartItem = id => {
+    return dispatch(incrementCartItemAction(id))
   }
 
-  const decrementCartItem = item => {
-    const data = {
-      value: item
-    }
-    return dispatch(decrementCartItemAction(data))
+  const decrementCartItem = id => {
+    return dispatch(decrementCartItemAction(id))
   }
 
   const removeCartItem = id => {
@@ -67,7 +61,7 @@ export const useCart = () => {
   }
 
   return {
-    cart,
+    cart, 
     addCartItem,
     incrementCartItem,
     decrementCartItem,
