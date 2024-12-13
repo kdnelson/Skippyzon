@@ -18,7 +18,7 @@ const Payment = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-6 col-lg-6 mt-2">
+        <div className="col-md-6 col-lg-6 mt-3 gy-0 gx-4">
           <div className="row justify-content-start">
             {email === null
               ? (

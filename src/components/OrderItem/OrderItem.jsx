@@ -10,7 +10,7 @@ const OrderItem = (props) => {
   const { getPaymentAndTaxTotal } = useCart()
   return (
     <>
-      <div className="row fs-5 fw-bold">{t('orderitems.orderId')}: {id}</div>
+      <div className="row fs-5 mt-5 fw-bold">{t('orderitems.orderId')}: {id}</div>
       <CurrencyFormat renderText={(value) => (
         <div className="row fs-5 fw-bold">{t('orderitems.total')}: {value}</div>
       )}

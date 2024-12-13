@@ -8,9 +8,9 @@ import {
   decrementCartItemStart,
   decrementCartItemSuccess,
   decrementCartItemError,
-  removeCartItemStart,
-  removeCartItemSuccess,
-  removeCartItemError,
+  emptyCartStart,
+  emptyCartSuccess,
+  emptyCartError,
 } from '../reducers/cartReducer';
 
 export const addCartItemAction = data => dispatch => {
@@ -46,5 +46,17 @@ export const removeCartItemAction = id => dispatch => {
     dispatch(removeCartItemSuccess({id}))
   } catch (err) {
     dispatch(removeCartItemError(err))
+  }
+}
+
+export const emptyCartAction = () => dispatch => {
+  try {
+    dispatch(emptyCartStart())
+
+    dispatch(
+      emptyCartSuccess()
+    )
+  } catch (err) {
+    dispatch(emptyCartError(err))
   }
 }

@@ -5,12 +5,12 @@ import { useOrder } from '../../hooks/index.jsx'
 
 const Orders = () => {
   const { t } = useTranslation()
-  const { orders } = useOrder()
+  const { order } = useOrder()
   return (
       <div className="container">
         <div className="row justify-content-center">
-          <div className="row fs-2 fw-bold mt-3 mb-3">{t('orders.yourOrder')}</div>
-            {orders.map(o => (
+          <div className="row fs-2 fw-bold mb-3">{t('orders.yourOrder')}</div>
+            {order.map(o => (
               <OrderItems
                 key={o.id}
                 id={o.id}

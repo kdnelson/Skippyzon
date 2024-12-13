@@ -1,37 +1,29 @@
-import { useAppDispatch } from './useBase';
+import { useAppDispatch, useAppSelector } from './useBase';
+import { v4 as uuidv4 } from 'uuid'
 import {
   addOrderAction,
-  removeOrderAction,
-  emptyOrderAction
+  removeOrderItemAction,
 } from './../middleware/actions/orderActions';
 
 export const useOrder = () => {
   const dispatch = useAppDispatch();
+  const order = useAppSelector((state) => state.order.order);
 
-  const addOrder = (value) => {
+  const addOrder = cart => {
     const data = {
-      value: value
-    }
-    return dispatch(addOrderAction(data))
+       id: uuidv4(),
+       order: cart
+     }
+     return dispatch(addOrderAction(data))
   }
 
-  const removeOrder = (value) => {
-    const data = {
-      value: value
-    }
-    return dispatch(removeOrderAction(data))
-  }
-
-  const emptyOrder = (value) => {
-    const data = {
-      value: value
-    }
-    return dispatch(emptyOrderAction(data))
+  const removeOrderItem = async id => {
+    return dispatch(removeOrderItemAction(id))
   }
 
   return {
+    order,
     addOrder,
-    removeOrder,
-    emptyOrder,
+    removeOrderItem,
   }
 }

@@ -151,6 +151,19 @@ const cartReducer = createSlice({
       state.isLoading = false,
       state.errorMessage = ""
     },
+    emptyCartStart: state => {
+      state.isLoading = true,
+      state.errorMessage = ""
+    },
+    emptyCartSuccess: state => {
+      state.cart = [],
+      state.isLoading = false,
+      state.errorMessage = ""
+    },
+    emptyCartError: state => {
+      state.isLoading = false,
+      state.errorMessage = ""
+    },
   },
 });
 
@@ -166,6 +179,9 @@ export const {
   decrementCartItemError,
   removeCartItemStart,
   removeCartItemSuccess,
-  removeCartItemError
+  removeCartItemError,
+  emptyCartStart,
+  emptyCartSuccess,
+  emptyCartError,
 } = cartReducer.actions;
 export default cartReducer.reducer;

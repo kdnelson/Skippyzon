@@ -2,40 +2,37 @@ import {
   addOrderStart,
   addOrderSuccess,
   addOrderError,
-  removeOrderStart,
-  removeOrderSuccess,
-  removeOrderError,
-  emptyOrderStart,
-  emptyOrderSuccess,
-  emptyOrderError
+  removeOrderItemStart,
+  removeOrderItemSuccess,
+  removeOrderItemError,
+  // emptyOrderStart,
+  // emptyOrderSuccess,
+  // emptyOrderError
 } from '../reducers/orderReducer';
+import { emptyCartAction } from './cartActions'
 
-export const addOrderAction = (data) => dispatch => {
+export const addOrderAction = data => dispatch => {
   try {
     dispatch(addOrderStart())
 
-    dispatch(addOrderSuccess(data))
+    dispatch(addOrderSuccess({data}))
+
+    dispatch(emptyCartAction())
   } catch (err) {
     dispatch(addOrderError(err))
   }
 }
 
-export const removeOrderAction = (data) => dispatch => {
+export const removeOrderItemAction = id => async dispatch => {
   try {
-    dispatch(removeOrderStart())
+    dispatch(removeOrderItemStart())
 
-    dispatch(removeOrderSuccess(data))
+    dispatch(
+      removeOrderItemSuccess({
+        id
+      })
+    )
   } catch (err) {
-    dispatch(removeOrderError(err))
-  }
-}
-
-export const emptyOrderAction = (data) => dispatch => {
-  try {
-    dispatch(emptyOrderStart())
-
-    dispatch(emptyOrderSuccess(data))
-  } catch (err) {
-    dispatch(emptyOrderError(err))
+    dispatch(removeOrderItemError(err))
   }
 }
