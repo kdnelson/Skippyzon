@@ -19,21 +19,19 @@ const Payment = () => {
     <div className="container">
       <div className="row">
         <div className="col-md-6 col-lg-6 mt-3 gy-0 gx-4">
-          <div className="row justify-content-start">
+          <div className="row">
             {email === null
               ? (
               <h3>{t('checkout.pleaseSignIn')}</h3>
                 )
               : (
-                <div className="col-md-12 col-lg-8">
-                  <div className="container">
-                    <div className="row justify-content-start">
-                      <div className="card h-100 bg-body rounded address-card mt-2">
-                        <div className="card-body">
-                          <h4 className="fw-bold">{username}</h4>
-                          <h6>{email}</h6>
-                          <h6>{useraddress}</h6>
-                        </div>
+                <div className="container">
+                  <div className="row justify-content-start">
+                    <div className="card h-100 bg-body rounded address-card">
+                      <div className="card-body">
+                        <h4 className="fw-bold">{username}</h4>
+                        <h6>{email}</h6>
+                        <h6>{useraddress}</h6>
                       </div>
                     </div>
                   </div>
@@ -41,7 +39,7 @@ const Payment = () => {
                 )}
           </div>
         </div>
-        <div className="col-md-6 col-lg-6 mt-3 mb-3">
+        <div className="col-md-6 col-lg-6 mt-3 mb-3 gy-0 gx-0">
           <div className="row justify-content-end">
             {email !== null && cart?.length > 0 && (
               <div className="col-md-8 col-lg-8">

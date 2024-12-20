@@ -9,7 +9,7 @@ const Orders = () => {
   return (
       <div className="container">
         <div className="row justify-content-center">
-          <div className="row fs-2 fw-bold mb-3">{t('orders.yourOrder')}</div>
+          <div className="row fs-2 fw-bold">{t('orders.yourOrder')}</div>
             {order.map(o => (
               <OrderItems
                 key={o.id}
