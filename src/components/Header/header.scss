@@ -21,8 +21,13 @@
   color: white;
   background: black;
   border-color: white;
+  width: 300px;
   border-width: 0.1rem;
   border-radius: 0.2rem;
+}
+
+.signin-orders-style {
+  margin-left: 10px;
 }
 
 .searchbar-style:focus {
