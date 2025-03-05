@@ -10,18 +10,35 @@
   text-decoration: none;
 }
 
-.link-style {
-  color: white;
-  font-weight: 600;
+.header-version {
+  color: gold;
+  font-weight: bold;
   font-size: x-small;
   text-decoration: none;
 }
 
-.searchbar-style {
+.link-style {
+  color: white;
+  font-weight: 600;
+  font-size: x-small;
+  margin: 0px;
+  text-decoration: none;
+}
+
+.desktop-searchbar {
   color: white;
   background: black;
   border-color: white;
   width: 300px;
+  border-width: 0.1rem;
+  border-radius: 0.2rem;
+}
+
+.phone-searchbar {
+  color: white;
+  background: black;
+  border-color: white;
+  width: 170px;
   border-width: 0.1rem;
   border-radius: 0.2rem;
 }
@@ -37,4 +54,8 @@
 .shopping-cart-style {
   font-weight: 600;
   font-size: small;
+}
+
+.cart-icon-width {
+  width: 20px;
 }

@@ -13,6 +13,10 @@ export const useCart = () => {
   const cart = useAppSelector((state) => state.cart.cart);
 
   const addCartItem = async (serialNumber, title, image, price) => {
+    if(getCartCounter() >= 99) {
+      return;
+    }
+
     const data = {
       id: uuidv4(),
       serialNumber,
