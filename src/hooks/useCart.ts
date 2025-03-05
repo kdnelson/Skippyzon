@@ -13,7 +13,7 @@ export const useCart = () => {
   const cart = useAppSelector((state) => state.cart.cart);
 
   const addCartItem = async (serialNumber, title, image, price) => {
-    if(getCartCounter() >= 99) {
+    if(getCartCount() >= 99) {
       return;
     }
 
@@ -40,7 +40,7 @@ export const useCart = () => {
     return dispatch(removeCartItemAction(id))
   }
 
-  const getCartCounter = () => {
+  const getCartCount = () => {
     let counter = 0
     cart?.map(item => {
       counter += item.quantity
@@ -70,7 +70,7 @@ export const useCart = () => {
     incrementCartItem,
     decrementCartItem,
     removeCartItem,
-    getCartCounter,
+    getCartCount,
     getPaymentAndTaxTotal,
     getCartTotal,
   }

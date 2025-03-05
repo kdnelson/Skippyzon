@@ -7,15 +7,16 @@ import SearchIcon from '@mui/icons-material/Search'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket'
 import { MAX_DESKTOP_HEADER_SCREENSIZE } from './../../constants'
 import { Link } from 'react-router-dom'
-import { useUser, useCart, useProduct } from '../../hooks'
+import { useUser, useCart, useProduct, useOrder } from '../../hooks'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Header = () => {
   const { t } = useTranslation()
   const reactJsVersion = 'Version ' + version
   const { email } = useUser()
-  const { getCartCounter } = useCart()
+  const { getCartCount } = useCart()
   const { setProductQuery } = useProduct()
+  const { getOrderCount } = useOrder()
   const [screenSize, setScreenSize] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -47,7 +48,7 @@ const Header = () => {
             </Link>
           </div>
           <div className="signin-orders-style p-2 pe-2">            
-            {email && (
+            {email && getOrderCount() > 0 && (
               <Link className="link-style" to='/orders'>
                 <div className="row">{t('header.returns')}</div>
                 <div className="row fs-6 fw-bold">{t('header.andOrders')}</div>
@@ -57,7 +58,7 @@ const Header = () => {
             <Link className="link-style shopping-cart-style" to="/checkout">
               <div className="row">
                 <div className="col-4"><ShoppingBasketIcon /></div>
-                <div className="col-auto">{getCartCounter()}</div>  
+                <div className="col-auto">{getCartCount()}</div>  
               </div>
             </Link>
           </div>
@@ -79,7 +80,7 @@ const Header = () => {
               </Link>
             </div>
             <div class="signin-orders-style p-2 pe-3">            
-              {email && (
+              {email && getOrderCount() > 0 && (
                 <Link className="link-style" to='/orders'>
                   <div className="row">{t('header.returns')}</div>
                   <div className="row fs-6 fw-bold">{t('header.andOrders')}</div>
@@ -89,7 +90,7 @@ const Header = () => {
               <Link className="link-style shopping-cart-style" to="/checkout">
                 <div className="row">
                   <div className="col-3 p-0"><ShoppingBasketIcon /></div>
-                  <div className="col-auto">{getCartCounter()}</div>  
+                  <div className="col-auto">{getCartCount()}</div>  
                 </div>
               </Link>
             </div>

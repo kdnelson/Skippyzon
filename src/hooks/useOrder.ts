@@ -21,9 +21,14 @@ export const useOrder = () => {
     return dispatch(removeOrderItemAction(id))
   }
 
+  const getOrderCount = () => {
+    return order.length
+  }
+ 
   return {
     order,
     addOrder,
     removeOrderItem,
+    getOrderCount,
   }
 }
