@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next'
 import SearchIcon from '@mui/icons-material/Search'
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket'
 import {
-  MAX_DESKTOP_HEADER_SCREENSIZE,
-  MAX_PHONE_HEADER_SCREENSIZE,
+  MAX_MEDIA_SIZE_DESKTOP,
+  MAX_MEDIA_SIZE_PHONE,
 } from './../../constants'
 import { Link } from 'react-router-dom'
 import { useUser, useCart, useProduct, useOrder } from '../../hooks'
@@ -34,9 +34,9 @@ const Header = () => {
 
   return (
     <div className="header-style">
-      {screenSize >= MAX_DESKTOP_HEADER_SCREENSIZE && (
+      {screenSize >= MAX_MEDIA_SIZE_DESKTOP && (
         <div class="d-flex flex-wrap align-items-start">
-          <div className="p-1 pe-2">
+          <div className="p-1 ps-2 pe-2">
             <div><Link className="logo-style" to="/">Skippyzon</Link></div>
             <div className="header-version">{reactJsVersion}</div>
           </div>
@@ -67,11 +67,11 @@ const Header = () => {
           </div>
         </div>
       )}
-      {screenSize < MAX_DESKTOP_HEADER_SCREENSIZE && 
-       screenSize > MAX_PHONE_HEADER_SCREENSIZE && (
+      {screenSize < MAX_MEDIA_SIZE_DESKTOP && 
+       screenSize > MAX_MEDIA_SIZE_PHONE && (
         <div class="row">
           <div class="d-flex flex-wrap align-items-start">
-            <div className="p-1 pe-2">
+            <div className="p-1 ps-2 pe-2">
               <div><Link className="logo-style" to="/">Skippyzon</Link></div>
             <div className="header-version">{reactJsVersion}</div>
             </div>
@@ -105,10 +105,10 @@ const Header = () => {
           </div>
         </div>
       )}
-      {screenSize <= MAX_PHONE_HEADER_SCREENSIZE && (
+      {screenSize <= MAX_MEDIA_SIZE_PHONE && (
         <div class="row">
           <div class="d-flex flex-wrap align-items-start">
-            <div className="p-1 pe-2">
+            <div className="p-1 ps-2 pe-2">
               <div><Link className="logo-style" to="/">Skippyzon</Link></div>
             <div className="header-version">{reactJsVersion}</div>
             </div>
