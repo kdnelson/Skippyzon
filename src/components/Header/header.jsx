@@ -59,7 +59,7 @@ const Header = () => {
           </div>
           <div className="mt-3 ms-auto">
             <Link className="link-style shopping-cart-style" to="/checkout">
-              <div className="row">
+              <div className="row shopping-cart-width">
                 <div className="col-4"><ShoppingBasketIcon /></div>
                 <div className="col-auto">{getCartCount()}</div>  
               </div>
@@ -81,7 +81,7 @@ const Header = () => {
             </div>
             <div class="mt-3 ms-auto">
               <Link className="link-style shopping-cart-style" to="/checkout">
-                <div className="row">
+                <div className="row shopping-cart-width">
                   <div className="col-3 p-0"><ShoppingBasketIcon /></div>
                   <div className="col-auto">{getCartCount()}</div>  
                 </div>
@@ -133,7 +133,7 @@ const Header = () => {
             </div>
             <div class="mt-3 ms-auto">
               <Link className="link-style shopping-cart-style" to="/checkout">
-                <div className="row">
+                <div className="row shopping-cart-width">
                   <div className="col-3 p-0"><ShoppingBasketIcon /></div>
                   <div className="col-auto">{getCartCount()}</div>  
                 </div>
