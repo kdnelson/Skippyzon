@@ -6,8 +6,9 @@ ReactJS with Vite
 
 TODO
 
+Add some unit tests for Jenkins
+Standardize CSS class names
 Why are actions getting multiple calls?
 Capitalize folders and component names?
 Should key on user id instead of email?
 Create user object in useUser and export
-Standardize CSS class names
